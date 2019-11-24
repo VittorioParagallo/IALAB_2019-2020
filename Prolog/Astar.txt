@@ -1,0 +1,23 @@
+﻿Astar
+
+Abbiamo implementato Astar utilizzando una ricerca in ampiezza (BFS) informata.
+L'algoritmo è suddiviso in "helper method" (astar_aux) e "wrapper method" (astar);
+il metodo wrapper serve solamente per il calcolo del valore inziale della funzione di valutazione mentre il vero core dell'algoritmo è astar_aux.
+astar_aux è suddiviso in due parti:
+1. La parte ricorsiva dove viene esplorato lo spazio degli stati. (COMPLETEZZA)
+2. La parte di controllo che verifica se si è giunti allo stato finale meno lontano dallo stato inziale. (CORRETTEZZA e OTTIMALITA')
+Nella prima parte di astar_aux, utilizziamo la funzione "findall" per effetturare la ricerca nello spazio degli stati (per trovare quali stati sono raggiungibili dallo stato corrente).
+Successivamente utilizziamo il metodo "generaStatiFigli" per generare appunto una lista di stati figli (ciascuno rappresentato da una tupla siffatta: nodo(F,G,S,Azioni), dove
+F rappresenta il valore dela funzione di valutazione,
+G rappresenta il valore della distanza reale fra il nodo iniziale e il nodo corrente,
+S rappresenta le informazioni relative allo stato corrente e
+Azioni rappresenta le informazioni relative alle azioni effettuate dallo stato iniziale allo stato S).
+Il metodo "generaStatiFigli" è suddiviso in 5 parti:
+1. La parte di codice che viene eseguita laddove non sono più presenti azioni ammissibili.
+2. La parte di codice che viene eseguita laddove viene trovato uno stato già presente nella lista degli aperti, ma avente valore F più basso.
+3. La parte di codice che viene eseguita laddove viene trovato uno stato non ancora esplorato.
+4. La parte di codice che viene eseguita laddove viene trovato uno stato già presente nella lista dei chiusi, ma avente valore F più basso.
+5. La parte di codice che viene eseguita laddove viene trovato uno stato già presente nella lista degli aperti o dei chiusi, ma avente valore F uguale o maggiore e quindi scartato.
+
+Nel caso in cui vi siano molteplici uscite, l'algoritmo viene guidato dall'euristica verso l'uscita più vicina alla sorgente.
+Abbiamo infine utilizzato come struttura dati per manipolare le liste in modo ordinato la libreria standard di Prolog, ordsets.

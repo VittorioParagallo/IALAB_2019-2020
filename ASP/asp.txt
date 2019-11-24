@@ -1,0 +1,6 @@
+ASP
+
+I vincolo che abbiamo scritto nel programma ASP sono:
+1. Un cardinality constraint per assegnare ad ogni squadra uno e un solo girone.
+2. Un cardinality constraint per assegnare ad ogni girone esattamente 4 squadre.
+3. Un constraint per evitare che due squadre della stessa nazione possano essere collocate nello stesso girone.
