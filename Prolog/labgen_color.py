@@ -7,37 +7,37 @@ import argparse
 
 HEURISTIC="""% Min
 list_min([L|Ls], Min) :-
-    list_min(Ls, L, Min).
+	list_min(Ls, L, Min).
 
 list_min([], Min, Min).
 list_min([L|Ls], Min0, Min) :-
-    Min1 is min(L, Min0),
-    list_min(Ls, Min1, Min).
+	Min1 is min(L, Min0),
+	list_min(Ls, Min1, Min).
 
 % euristica1 (distanza di manatthan)
 h_Manatthan(pos(R, C), MinDistance):-
-    findall(Distance, (finale(pos(FinalR, FinalC)), Distance is abs(FinalR-R) + abs(FinalC-C)), Distances),
-    list_min(Distances, MinDistance).
+	findall(Distance, (finale(pos(FinalR, FinalC)), Distance is abs(FinalR-R) + abs(FinalC-C)), Distances),
+	list_min(Distances, MinDistance).
 
 % euristica2 (distanza euclidea)
 h_Euclidean(pos(R, C), MinDistance):-
-    findall(Distance, (finale(pos(FinalR, FinalC)), Distance is sqrt((FinalR-R)^2 + (FinalC-C)^2)), Distances),
-    list_min(Distances, MinDistance).
+	findall(Distance, (finale(pos(FinalR, FinalC)), Distance is sqrt((FinalR-R)^2 + (FinalC-C)^2)), Distances),
+	list_min(Distances, MinDistance).
 
 % euristica
 h(pos(R, C), Distance):-
-    heuristic(H),
-    H == 1,!,
-    h_Manatthan(pos(R, C), Distance).
+	heuristic(H),
+	H == 1,!,
+	h_Manatthan(pos(R, C), Distance).
 
 h(pos(R, C), Distance):-
-    heuristic(H),
-    H == 2,!,
-    h_Euclidean(pos(R, C), Distance).
+	heuristic(H),
+	H == 2,!,
+	h_Euclidean(pos(R, C), Distance).
 
 % gScore
 g(CurrentGValue, GScore):-
-    GScore is CurrentGValue + 1."""
+	GScore is CurrentGValue + 1."""
 
 def genMaze(h,mx,my,outputname):
 	imgx = 500; imgy = 500
@@ -46,7 +46,7 @@ def genMaze(h,mx,my,outputname):
 
 	maze = [[0 for x in range(mx)] for y in range(my)]
 	dx = [0, 1, 0, -1]; dy = [-1, 0, 1, 0] # 4 directions to move in the maze
-	color = [(0,0, 0), (255, 255, 255), (255,255,0)] # RGB colors of the maze
+	color = [(0,0,0), (255, 255, 255), (255,255,0), (255,0,0)] # RGB colors of the maze
 
 	# start the maze from a random cell
 	startx = random.randint(0, mx - 1)
@@ -112,9 +112,10 @@ def genMaze(h,mx,my,outputname):
 	# paint the maze
 	for ky in range(imgy):
 		for kx in range(imgx):
-			if((int(my * ky / imgy) == starty and int(mx * kx / imgx) == startx) or
-				(int(my * ky / imgy) == endy and int(mx * kx / imgx) == endx)):
+			if(int(my * ky / imgy) == starty and int(mx * kx / imgx) == startx):
 				pixels[kx, ky] = color[2]
+			elif(int(my * ky / imgy) == endy and int(mx * kx / imgx) == endx):
+				pixels[kx, ky] = color[3]
 			else:
 				pixels[kx, ky] = color[maze[int(mx * kx / imgx)][int(my * ky / imgy)]]
 

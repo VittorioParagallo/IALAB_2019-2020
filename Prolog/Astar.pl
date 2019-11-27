@@ -39,10 +39,9 @@ generaStatiFigli(_,Op,[],Cl,[],Op,Cl):-!.
 % Trovo un nodo che appartiene ad Opened con F minore
 generaStatiFigli(nodo(F,G,S,AzioniPerS),Opened,[Azione|AltreAzioni],Closed,OrderedFigliTail,NewOpenedOut,NewClosedOut):-
     trasforma(Azione,S,SNuovo),
-    \+member(nodo(_, _, SNuovo, _),Closed),
+    member(nodo(FOpened, GOpened, SNuovo, Az),Opened),
     g(G, NewG),
     f(NewG, SNuovo, FNew),
-    member(nodo(FOpened, GOpened, SNuovo, Az),Opened),
     FNew < FOpened,!,
     ord_subtract(Opened, [nodo(FOpened, GOpened, SNuovo, Az)], NewOpened),
     generaStatiFigli(nodo(F,G,S,AzioniPerS),NewOpened,AltreAzioni,Closed,FigliTail,NewOpenedOut,NewClosedOut),
