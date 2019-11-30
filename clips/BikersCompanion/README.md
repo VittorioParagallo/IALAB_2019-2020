@@ -24,7 +24,7 @@ Here below as well the dataset specifications by geografic regions and paossible
 <img height="250" src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/tbl_regioneTurismType.png"/>
   </p>
   
-The project comes with a trial version with a subset of the catalog of 20 hotels.
+The project comes with a validation set of 20 hotels retreived from the catalog.
 Several templates have been defined in clips to manage hotels and towns like facts:
 
 <b>tourism-resort:</b> 
