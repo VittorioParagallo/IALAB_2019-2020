@@ -25,19 +25,26 @@ Here below as well the dataset specifications by geografic regions and paossible
   </p>
   
 The project comes with a trial version with a subset of the catalog of 20 hotels.
+Several templates have been defined in clips to manage hotels and towns like facts:
 
-The following image reports the methods of production and consumption of each city: 
+tourism-resort: 
+- *name* the town's name;
+- *region* region the town belongs to;
+- *type* multislot listing all avaliable tourism type for the specific town;
+- *scors* multislot listing the score for every tourism type specified in type.
 
-We have several vehicles available: 
-- 5 *vans* with capacity 4,
-- 2 *planes* with capacity 7,
-- 2 *ships* with capacity 11 
-(where capacity is the maximum number of wares transportable from each vehicle).
+hotel: 
+- *name* hotel name as by POI file;
+- *tr* tourism-resort type specification;
+- *stars* hotel's stars randomly assigned douring source data fetching (data not avaliable in source);
+- *price-per-night* price for a double room per night;
+- *free-percent* percentage of room avaliability (used as well to balance hotel loading);
 
-Each vehicle is located in a prior known location: 
-- 3 *vans* are in Bologna and 2 are in Rome,
-- 1 *ships* is in Genoa and the other is in Venice,
-- 1 *planes* is in Palermo, the other in Milan.
+a distance template has been declared and for simplicity the distance facts predefined:
+- *loc1* town leaving from;
+- *loc2* town arriving to;
+- *distance* idistance between loc1 and loc2.
+
 
 
 Each of the vehicles can perform three basic actions: 
@@ -52,28 +59,7 @@ Each of these actions has a cost dependent on one or more parameters:
 The following are the functions used to calculate each cost:
 
 
-<p align="center">
-<img src="http://latex.codecogs.com/gif.latex?wares%5C_%5C%20cost%28quantity%29%20%3D%20quantity%20*%2010"/>
-</p>
 
-
-<p align="center">
-  <img src="http://latex.codecogs.com/gif.latex?travel%5C_%5C%20cost%28type%2C%20distance%29%20%3D%20%5Cleft%5C%7B%5Cbegin%7Bmatrix%7D%20distance%2C%26%20%5C%3A%20if%20%5C%3A%20type%20%3D%20%22van%22%20%5C%5C%5B2pt%5D%20%5Cfrac%7B2%7D%7B3%7Ddistance%2C%26%20%5C%3A%20if%20%5C%3A%20type%20%3D%20%22ship%22%20%5C%5C%5B4pt%5D%20%5Cfrac%7B5%7D%7B4%7Ddistance%2C%26%20%5C%3A%20if%20%5C%3A%20type%20%3D%20%22plane%22%20%5C%5C%5B2pt%5D%20%5Cend%7Bmatrix%7D%5Cright."/>
-</p>
-
-Some journeys are not viable by all means of transport and therefore not all cities are directly connected to each other.
-
-
-The following image represents the routes that can be traveled with the various types of vehicles 
-(can also be found in the legend):
-<p align="center">
-  <img src="https://github.com/CesareIurlaro/clips-project/blob/master/stuff/route.PNG"/>
-</p>
-
-The following image represents the crow flies distances between the different cities:
-<p align="center">
-  <img src="https://github.com/CesareIurlaro/clips-project/blob/master/stuff/crow_flies_distances.PNG"/>
-</p>
 
 # Project structure
 The project, contained within the 'A-star' folder, has been divided into three main parts:
