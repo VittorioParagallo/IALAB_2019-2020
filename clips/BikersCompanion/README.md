@@ -5,7 +5,7 @@ This project implements an expert system written in CLIPS meeting the requiremen
 </p>
 
 # User interaction
-The system prompts several question to the user about the travel preferences. So the user can specify his desiderata without the need of beeing too specific. The system will then, according to user specifications, find the best solution to show to the user. the user can then, accept the solution, or define more specific criteria to get a more custom solution.
+The system prompts several questions to the user about his travel preferences. The user can input then his desiderata without need of beeing too specific. The system will, according to user specifications, reply with the best solution found. In the end the user can either, accept the solution, or define more specific criteria to get a more custom one.
 
 # Project Description
 Bikers companion is an expert system set up to help users, willing to travel within Italy's borders*, to plan a journey according to their wishes. The hotels records have been retreived from GPS POI avaliable online and frequently updated (last update 11 November 2019). So the system is strongly raccomanded for bikers community, but could be as well suitable for users travelling by car/van/caravan.
