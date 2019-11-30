@@ -467,6 +467,6 @@ Il costo totale è : 31144
 
 ## Authors
 
-* **Cesare Pio Iurlaro** - [CesareIurlaro](https://github.com/CesareIurlaro)
-* **Giuseppe Gabbia**  - [beppe95](https://github.com/beppe95)
-* **Lamberto Basti**  - [lamba92](https://github.com/lamba92)
+* **Alberto Guastalla** - []()
+* **Tommaso Toscano**  - [DarkRaider95](https://github.com/DarkRaider95)
+* **Vittorio Paragallo**  - [VittorioParagallo](https://github.com/VittorioParagallo)
