@@ -8,7 +8,7 @@ For simplicity it is assumed that each of the cities produces and needs only one
 
 The following image reports the methods of production and consumption of each city: 
 <p align="center">
-  <img src="/img/bikers companion logo_nobackground.png"/>
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/bikerscompanion_logo_nobackground.png"/>
 </p>
 
 We have several vehicles available: 
