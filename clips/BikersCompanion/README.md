@@ -13,7 +13,7 @@ Raw data have been retreived from poi file:
 http://www.poigps.com/modules.php?name=Downloads&d_op=getit&lid=2795
 so all poi's latitude and longitude coordinates have been treated by some google scripting so to get addresses ad set up a catalog of 486 hotels in 85 Italian towns classified by their region and turism type.
 <p align="center">
-  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/tbl_hotelXRegione.png"/>
+  <img style="height:50%;" src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/tbl_hotelXRegione.png"/>
     <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/tbl_hotelXRegione.png"/>
 </p>
 The following image reports the methods of production and consumption of each city: 
