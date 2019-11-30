@@ -3,6 +3,7 @@ This project implements an expert system written in CLIPS meeting the requiremen
 <p align="center">
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/bikerscompanion_logo_nobackground.png"/>
 </p>
+
 # Project Description
 The project consists in trying to meet the needs of various Italian cities wares (product type can be *A*, *B*, *C*).
 
