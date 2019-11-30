@@ -6,7 +6,7 @@ This project implements an expert system written in CLIPS meeting the requiremen
 
 # Project Description
 Bikers companion is an expert system set up to help users, willing to travel within Italy's borders*, to plan a journey according to their wishes. The hotels records have been retreived from GPS POI avaliable online and frequently updated (last update 11 November 2019). So the system is strongly raccomanded for bikers community, but could be as well suitable for users travelling by car/van/caravan. 
-<br><b><font size="6"><i>*For simplicity geographics constraints have not been considered by trip rules Ex. moving from/to an island</i></font>
+<br><b><font size="4"><i>*For simplicity geographics constraints have not been considered by trip rules Ex. moving from/to an island</i></font>
 
 # Source Data
 Raw data have been retreived from poi file:
