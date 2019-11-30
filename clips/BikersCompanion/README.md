@@ -1,15 +1,14 @@
 # Bikers-companion
 This project implements an expert system written in CLIPS meeting the requirements specified for the Laboratory of Artificial Intelligence at the University of Turin (Italy) during accademic year 2018-2019. 
-
+<p align="center">
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/bikerscompanion_logo_nobackground.png"/>
+</p>
 # Project Description
 The project consists in trying to meet the needs of various Italian cities wares (product type can be *A*, *B*, *C*).
 
 For simplicity it is assumed that each of the cities produces and needs only one type of product.
 
 The following image reports the methods of production and consumption of each city: 
-<p align="center">
-  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/bikerscompanion_logo_nobackground.png"/>
-</p>
 
 We have several vehicles available: 
 - 5 *vans* with capacity 4,
