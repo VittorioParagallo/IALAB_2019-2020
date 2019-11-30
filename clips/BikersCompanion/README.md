@@ -15,10 +15,10 @@ so all poi's latitude and longitude coordinates have been treated by some google
 <p align="center">
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/tbl_cittaRegioneHotel.png"/>
 </p>
-Here below as well of the dataset divide by regions:
+Here below as well the dataset specifications by geografic regions and paossible turism type:
 
 <p>
-<img height="250" src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/tbl_hotelXRegione.png"/>
+<img height="250" src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/tbl_regioneTurismType.png"/>
   </p>
   
 The project comes with a trial version with a subset of the catalog of 20 hotels.
