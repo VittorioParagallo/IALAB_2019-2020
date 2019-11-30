@@ -28,17 +28,17 @@ The project comes with a trial version with a subset of the catalog of 20 hotels
 Several templates have been defined in clips to manage hotels and towns like facts:
 
 <b>tourism-resort:</b> 
-- *name* <i>the town's name;</i>
-- *region* <i>region the town belongs to;</i>
-- *type* <i>multislot listing all avaliable tourism type for the specific town;</i>
-- *scors* <i>multislot listing the score for every tourism type specified in type.</i>
+- *name*  the town's name;
+- *region*  region the town belongs to;
+- *type*  multislot listing all avaliable tourism type for the specific town;
+- *scors* multislot listing the score for every tourism type specified in type.
 
 <b>hotel: </b>
-- *name* <i>hotel name as by POI file;</i>
-- *tr* <i>tourism-resort type specification;</i>
-- *stars* <i>hotel's stars randomly assigned douring source data fetching (data not avaliable in source);</i>
-- *price-per-night* <i>price for a double room per night;</i>
-- *free-percent* <i>percentage of room avaliability (used as well to balance hotel loading);</i>
+- *name*  hotel name as by POI file;
+- *tr*  tourism-resort type specification;
+- *stars* hotel's stars randomly assigned douring source data fetching (data not avaliable in source);
+- *price-per-night* price for a double room per night;
+- *free-percent*  percentage of room avaliability (used as well to balance hotel loading);
 
 a <b>distance</b> template has been declared and for simplicity the distance facts predefined:
 - *loc1* town leaving from;
