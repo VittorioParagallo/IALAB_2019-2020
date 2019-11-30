@@ -27,20 +27,20 @@ Here below as well the dataset specifications by geografic regions and paossible
 The project comes with a trial version with a subset of the catalog of 20 hotels.
 Several templates have been defined in clips to manage hotels and towns like facts:
 
-tourism-resort: 
+<b>tourism-resort:</b> 
 - *name* the town's name;
 - *region* region the town belongs to;
 - *type* multislot listing all avaliable tourism type for the specific town;
 - *scors* multislot listing the score for every tourism type specified in type.
 
-hotel: 
+<b>hotel: </b>
 - *name* hotel name as by POI file;
 - *tr* tourism-resort type specification;
 - *stars* hotel's stars randomly assigned douring source data fetching (data not avaliable in source);
 - *price-per-night* price for a double room per night;
 - *free-percent* percentage of room avaliability (used as well to balance hotel loading);
 
-a distance template has been declared and for simplicity the distance facts predefined:
+a <b>distance</b> template has been declared and for simplicity the distance facts predefined:
 - *loc1* town leaving from;
 - *loc2* town arriving to;
 - *distance* idistance between loc1 and loc2.
@@ -49,16 +49,7 @@ a distance template has been declared and for simplicity the distance facts pred
 
 Each of the vehicles can perform three basic actions: 
 - **load** (take goods),
-- **unload** (drop goods), 
-- **shift** (move between linked cities).
-
-Each of these actions has a cost dependent on one or more parameters: 
-- **loads** and **unloads**, the parameter is the *quantity of goods* that is treated by the action chosen, 
-- **shifts**, the parameters are both the *vehicle type* that performs it and the *distance* between the two cities. 
-
-The following are the functions used to calculate each cost:
-
-
+- **unload**  
 
 
 # Project structure
