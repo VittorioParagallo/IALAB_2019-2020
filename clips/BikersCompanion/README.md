@@ -3,6 +3,8 @@ This project implements an expert system written in CLIPS meeting the requiremen
 <p align="center">
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/bikerscompanion_logo_nobackground.png"/>
 </p>
+# User interaction
+The system prompts several question to the user about the travel preferences. So the user can specify his desiderata without the need of beeing too specific. The system will then, according to user specifications, find the best solution to show to the user. the user can then, accept the solution, or define more specific criteria to get a more custom solution.
 
 # Project Description
 Bikers companion is an expert system set up to help users, willing to travel within Italy's borders*, to plan a journey according to their wishes. The hotels records have been retreived from GPS POI avaliable online and frequently updated (last update 11 November 2019). So the system is strongly raccomanded for bikers community, but could be as well suitable for users travelling by car/van/caravan.
