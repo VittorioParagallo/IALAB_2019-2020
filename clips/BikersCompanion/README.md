@@ -53,19 +53,13 @@ Each of the vehicles can perform three basic actions:
 
 
 # Project structure
-The project, contained within the 'A-star' folder, has been divided into three main parts:
-- `algorithm`, which contains all the CLIPS modules related to the algorithm used,
+The project, contained within the BikeCompanion folder:
+- `sourcedata`, folder contains all the raw data and an xlsx file to manipulate (the poi address translastion has been done in google script with google sheet but can't be updated on GitHub;
 - `domain`, that contains functions, facts, rules and templates used specifically for the domain,
-- `knowledge_bases`, that contains the knowledge bases used for the project.
+- `bikers-companion.clp`, file contains all the code to run the system;
+- `img` folder contains all the images used in the documentation.
 
-
-There are also three other files necessary for the correct execution of the program.
-They are:
-- `loads`, which contains the instructions necessary to configure the execution environment,
-- `projectCosts`, on which they are saved progressively the partial costs of the solution,
-- `run`, used to open the CLIPS shell where to run the program.
-
-To run the program open `run.bat` file (or use the tool **CLIPSIDE**) and type `(batch loads)` command.
+To run the system download `bikers-companion.clp` file and use `clips` to run it.
 
 # Search Algorithm
 The suggested algorithms for solving the problem were **Iterative Deepening** and **A***. 
