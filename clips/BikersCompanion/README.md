@@ -61,7 +61,8 @@ The project, contained within the BikeCompanion folder:
 
 To run the system download `bikers-companion.clp` file and use `clips` to run it.
 
-# Search Algorithm
+# Implementation details
+
 The suggested algorithms for solving the problem were **Iterative Deepening** and **A***. 
 Both have been implemented and applied to perform the research on a graph in the space of the states.
 
