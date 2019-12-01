@@ -117,12 +117,13 @@ Infine vi Ë una piccola parte prettamente algoritmica utilizzata solamente per 
 Also solutions splitting many short days time units in the same town over different hotels are avoided, infact is not reasonable to spend 4 days in the same town and every day in a different hotel.
 
 ## Scenario
-We have implemented an **admissible heuristic**, which means that it is *never wrong for excess* and that it is *consistent* (or *monotonic*) for graph search applications. [Artificial Intelligence: A Modern Approach, S.J. Russel & P. Norvig]
-
-Our heuristic associates to each node a cost that depends on the sum of:
+Here a scenario is shown 
 - cost of operations (load or unload) on wares,
 - cost of the journey as the crow flies in the case of a move.
 
+<p>
+<img height="250" src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/prototype.jpeg"/>
+  </p>
 The algorithm will choose the optimal path based on this heuristic.
 
 ## Conclusion
