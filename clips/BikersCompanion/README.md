@@ -122,7 +122,7 @@ Here a scenario is shown
 - cost of the journey as the crow flies in the case of a move.
 
 <p>
-<img height="250" src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/prototype.jpeg"/>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/prototype.jpeg"/>
   </p>
 The algorithm will choose the optimal path based on this heuristic.
 
