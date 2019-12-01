@@ -69,7 +69,7 @@ In the interation process the loop is allowed by a specific fact (in the same mo
 
 **HINTS**: defines the rule `ask-a-question` to prompt the user input through the function `ask-question` (exposed from MAIN module). It retrieves unformatted `attribute` facts type. Two more rules are implemented to hadle the preconditions to list or not hint items.
 
-**CLINENT-REQUESTS**: contains all the predifined questions (hints)
+**CLIENT-REQUESTS**: contains all the predifined questions (hints)
 Hint/questions:
 - `1 Hint` Visita luoghi nell'arco di un certo periodo di tempo spendendo al massimo una certa somma.
   - Quali luoghi intendi visitare (immettere / se non si desidera rispondere)?
@@ -100,11 +100,21 @@ Hint/questions:
 This fact merges hotels data and user preferences while stores in the attribute `unknown-variables` all the user missing preferences. 
 
 **MAKE-RESULTS**: defines templates to compute finals solutions and rules to offset doubled facts with lower certainty factor.
+
 These are:
 - `make-possible-combinations` generates, though combinatorics, all possible hotel time distribution sets.
 - `make-feasible-solutions` offsets all not feasible solutions and generates `alternative` type facts for the feasible ones.
 - `update-certainties-about-distances` updates the attribute `sum-certanties` for `alternative` facts according to computed trip distance, hotel booking nights and hotel certanty factors. 
 - `print-results` prints on screen the resulting alternatives sorted by `sum-certanties` descend order. This sorting is implemented by the `sort` function thuough a comparator exposed from main module `rating-sort`). So the first 5 alternatives are printed and the user can shut-down the system or refine again the criteria.
+
+## Inference details
+Il motore inferenziale Ë sulla falsa riga di wine.clp, nel quale l'utente immette i propri requisiti sul viaggio che intende fare e il sistema esperto combina i vari fatti di tipo attribute immessi dall'utente e genera dei nuovi fatti di tipo best-attribute per indicare l'ipotecica miglior scelta prodotta dal sistema esperto sulla base dei dati immessi dall'utente.
+Dopo vi Ë la generazione degli hotel-attribute che combina i vari attributi best-attribute con gli hotel presenti nel sistema.
+Infine vi Ë una piccola parte prettamente algoritmica utilizzata solamente per la distribuzione dei giorni nei vari hotel "promettenti".
+Si tratta di un algoritmo enumerativo che genera ogni possibile assegnazione di tempo ai vari hotels effettuando divisioni successive.
+Infine vengono sfavorite quelle alternative dove vengono assegnati giorni ad un unico hotel o ad un piccolo sottoinsieme (vengono infatti favorite le soluzioni dove il flusso Ë maggiormente distribuito).
+Vengono scartate soluzioni identiche in termini di citt‡ (es. passare 3 giorni a milano e 2 giorni a Roma Ë da scartare se vi Ë gia una soluzione in cui si passano 3 giorni a Roma e 2 a Milano).
+Sono infine scartare le alternative tali per cui nella stessa soluzione vi Ë una ripartizione dei giorni fra due hotels della stessa citt‡.
 
 ## Scenario
 We have implemented an **admissible heuristic**, which means that it is *never wrong for excess* and that it is *consistent* (or *monotonic*) for graph search applications. [Artificial Intelligence: A Modern Approach, S.J. Russel & P. Norvig]
