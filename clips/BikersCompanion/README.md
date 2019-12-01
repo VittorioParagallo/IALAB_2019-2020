@@ -85,7 +85,8 @@ In the interation process the loop is allowed by a specific fact (in the same mo
 **HOTELS**: models the knowledge base with the Hotels, the Towns, the Tourism types and the distances between towns. The rule `generate-hotels` does part of the reasoning process on the user requirements to assert `hotel-attribute` facts.
 This fact merges hotels data and user preferences while stores in the attribute `unknown-variables` all the user missing preferences. 
 
-**MAKE-RESULTS**: defines templates to compute finals solutions, rules to offset doubled facts or facts 
+**MAKE-RESULTS**: defines templates to compute finals solutions and rules to offset doubled facts with lower certainty factor. The rule `make-possible-combinations` generates, though combinatorics, all possible hotel time distribution sets.
+
 
 
 ## Heuristic
