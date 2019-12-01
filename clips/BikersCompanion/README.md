@@ -80,7 +80,13 @@ In the interation process the loop is allowed by a specific fact (in the same mo
 
 **RULES**: this module does some parsing over "if then" rules type used to apply inference to over user requirements. "if-then" facts are then generated in the module `REASONING-RULES`.
 
-**REASONING-RULES**:
+**REASONING-RULES**: defines all the rules, with format "if then", needed for the reasoning process over the user preferences
+
+**HOTELS**: models the knowledge base with the Hotels, the Towns, the Tourism types and the distances between towns. The rule `generate-hotels` does part of the reasoning process on the user requirements to assert `hotel-attribute` facts.
+This fact merges hotels data and user preferences while stores in the attribute `unknown-variables` all the user missing preferences. 
+
+**MAKE-RESULTS**: defines templates to compute finals solutions, rules to offset doubled facts or facts 
+
 
 ## Heuristic
 We have implemented an **admissible heuristic**, which means that it is *never wrong for excess* and that it is *consistent* (or *monotonic*) for graph search applications. [Artificial Intelligence: A Modern Approach, S.J. Russel & P. Norvig]
