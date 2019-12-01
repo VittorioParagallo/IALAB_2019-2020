@@ -126,7 +126,8 @@ Here a scenario is shown the user choosing the hint 1 only and inputing the foll
 <p>
 <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/prototype.jpeg"/>
   </p>
-The algorithm will choose the optimal path based on this heuristic.
+  
+The system lists 5 alternatives and the user is satisfied.
 
 ## Conclusion
 To solve the non-termination due to the great complexity of the problem, it was necessary to divide it into several sub-problems, each of which deals with satisfying one of the previously mentioned cities.
