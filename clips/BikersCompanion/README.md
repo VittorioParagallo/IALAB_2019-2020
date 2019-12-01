@@ -65,12 +65,22 @@ To run the system download `bikers-companion.clp` file and use `clips` to run it
 
 # Implementation details
 
-The system is structured in 7 modules sorted according to the execution order.
+The system is structured in 7 modules.
 
-**MAIN**: defines several functions and templates needed to design the knoldge and exposes them to the other modules. Then controls the execution order of the other modules through the `start rule`. It handles as well some `auto focus` rules to combine the certainty factors linked to similar facts with different Fact-ID and some more rules to filter more detailed facts despite less detailed ones.
+**MAIN**: defines several functions and templates needed to design the knoldge and exposes them to the other modules. Then controls the execution order of the other modules through the `start rule`. It handles as well some `auto focus` rules to combine the certainty factors linked to similar facts with different Fact-ID. Some more rules are implemented to filter more detailed facts despite less detailed ones.
 
-**FORMAT-ATTRIBUTES**: 
+**FORMAT-ATTRIBUTES**: implements all the needed rules to format `attribute` fact types given in input by the user during che main prompt process.
 
+**CHOOSE-HINTS**:  handles the interation with the user to define the journey requirements. It shows a list of hints to help the user to express his preferences and prompts a choice. Once the user expresses his preference the system confirms the choice with a message and clears the hint item from the list, then the newly reduced list is shown again to the user do that he can add more choices. So the system iterates over the process till the user chooses to stop inputing precerences or there are no more questions. 
+In the interation process the loop is allowed by a specific fact (in the same module's agenda) modified on every interation (retracted and differently asserted again) to sort the rules execution flow.
+
+**HINTS**: defines the rule `ask-a-question` to prompt the user input through the function `ask-question` (exposed from MAIN module). It retrieves unformatted `attribute` facts type. Two more rules are implemented to hadle the preconditions to list or not hint items.
+
+**CLINENT-REQUESTS**: contains all the predifined questions (hints).
+
+**RULES**: this module does some parsing over "if then" rules type used to apply inference to over user requirements. "if-then" facts are then generated in the module `REASONING-RULES`.
+
+**REASONING-RULES**:
 
 ## Heuristic
 We have implemented an **admissible heuristic**, which means that it is *never wrong for excess* and that it is *consistent* (or *monotonic*) for graph search applications. [Artificial Intelligence: A Modern Approach, S.J. Russel & P. Norvig]
