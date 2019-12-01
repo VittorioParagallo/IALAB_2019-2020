@@ -59,6 +59,10 @@ To run the system download `bikers-companion.clp` file and use `clips` to run it
 # Implementation details
 
 The system is structured in 7 modules.
+<p align="center">
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/SYSTEMFLOWCHART.png"/>
+</p>
+
 
 **MAIN**: defines several functions and templates needed to design the knoldge and exposes them to the other modules. Then controls the execution order of the other modules through the `start rule`. It handles as well some `auto focus` rules to combine the certainty factors linked to similar facts with different Fact-ID. Some more rules are implemented to filter more detailed facts despite less detailed ones.
 
