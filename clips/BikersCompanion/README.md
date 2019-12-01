@@ -47,13 +47,6 @@ a <b>distance</b> template has been declared and for simplicity the distance fac
 - *loc2* town arriving to;
 - *distance* idistance between loc1 and loc2.
 
-
-
-Each of the vehicles can perform three basic actions: 
-- **load** (take goods),
-- **unload**  
-
-
 # Project structure
 The project, contained within the BikeCompanion folder:
 - `sourcedata`, folder contains all the raw data and an xlsx file to manipulate (the poi address translastion has been done in google script with google sheet but can't be updated on GitHub;
@@ -85,9 +78,12 @@ In the interation process the loop is allowed by a specific fact (in the same mo
 **HOTELS**: models the knowledge base with the Hotels, the Towns, the Tourism types and the distances between towns. The rule `generate-hotels` does part of the reasoning process on the user requirements to assert `hotel-attribute` facts.
 This fact merges hotels data and user preferences while stores in the attribute `unknown-variables` all the user missing preferences. 
 
-**MAKE-RESULTS**: defines templates to compute finals solutions and rules to offset doubled facts with lower certainty factor. The rule `make-possible-combinations` generates, though combinatorics, all possible hotel time distribution sets.
-
-
+**MAKE-RESULTS**: defines templates to compute finals solutions and rules to offset doubled facts with lower certainty factor.
+These are:
+- `make-possible-combinations` generates, though combinatorics, all possible hotel time distribution sets.
+- `make-feasible-solutions` offsets all not feasible solutions and generates `alternative` type facts for the feasible ones.
+- `update-certainties-about-distances` updates the attribute `sum-certanties` for `alternative` facts according to computed trip distance, hotel booking nights and hotel certanty factors. 
+- `print-results` prints on screen the resulting alternatives sorted by `sum-certanties` descend order. This sorting is implemented by the `sort` function thuough a comparator exposed from main module `rating-sort`). So the first 5 alternatives are printed and the user can shut-down the system or refine again the criteria.
 
 ## Heuristic
 We have implemented an **admissible heuristic**, which means that it is *never wrong for excess* and that it is *consistent* (or *monotonic*) for graph search applications. [Artificial Intelligence: A Modern Approach, S.J. Russel & P. Norvig]
