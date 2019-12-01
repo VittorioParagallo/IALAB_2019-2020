@@ -65,23 +65,12 @@ To run the system download `bikers-companion.clp` file and use `clips` to run it
 
 # Implementation details
 
-The suggested algorithms for solving the problem were **Iterative Deepening** and **A***. 
-Both have been implemented and applied to perform the research on a graph in the space of the states.
+The system is structured in 7 modules sorted according to the execution order.
 
-**Iterative Deepening**: the algorithm proved to be unsuitable for the resolution of the problem, as it is unable to find a solution within a reasonable time. However, it was possible to make some observations:
-drastically reducing the size of the problem it was possible to conclude the computation in a short time.
-However, the addition of only a few facts to the knowledge base worsened of much the performances. 
+**MAIN**: defines several functions and templates needed to design the knoldge and exposes them to the other modules. Then controls the execution order of the other modules through the `start rule`. It handles as well some `auto focus` rules to combine the certainty factors linked to similar facts with different Fact-ID and some more rules to filter more detailed facts despite less detailed ones.
 
-His implementation is contained within the `no_evaluation_function` folder.
+**FORMAT-ATTRIBUTES**: 
 
-Because of this, we opted for the **A*** algorithm implementation.
-
-**A\*:** this algorithm has a better behavior than the previous one, either because
-- of the **linear spatial complexity** in the depth of the deepest optimal solution,
-- it is helped by a **heuristic**.
-**If the heuristic is admissible, then the algorithm is optimal.**
-
-Despite this, **even A\* can not find a solution quickly.**
 
 ## Heuristic
 We have implemented an **admissible heuristic**, which means that it is *never wrong for excess* and that it is *consistent* (or *monotonic*) for graph search applications. [Artificial Intelligence: A Modern Approach, S.J. Russel & P. Norvig]
