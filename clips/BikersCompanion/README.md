@@ -136,6 +136,6 @@ This has precluded the possibility of finding the optimal solution of the whole 
 
 ## Authors
 
-* **Alberto Guastalla** - []()
+* **Alberto Guastalla** - [AlebertoGuastalla](https://github.com/AlebertoGuastalla)
 * **Tommaso Toscano**  - [DarkRaider95](https://github.com/DarkRaider95)
 * **Vittorio Paragallo**  - [VittorioParagallo](https://github.com/VittorioParagallo)
