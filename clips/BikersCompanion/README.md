@@ -69,7 +69,28 @@ In the interation process the loop is allowed by a specific fact (in the same mo
 
 **HINTS**: defines the rule `ask-a-question` to prompt the user input through the function `ask-question` (exposed from MAIN module). It retrieves unformatted `attribute` facts type. Two more rules are implemented to hadle the preconditions to list or not hint items.
 
-**CLINENT-REQUESTS**: contains all the predifined questions (hints).
+**CLINENT-REQUESTS**: contains all the predifined questions (hints)
+Hint/questions:
+- `1 Hint` Visita luoghi nell'arco di un certo periodo di tempo spendendo al massimo una certa somma.
+  - Quali luoghi intendi visitare (immettere / se non si desidera rispondere)?
+  - Per quanto tempo intendi visitarli (giorni)?
+  - Qual'e' il tuo budget massimo (euro)?
+  - Quante persone siete?
+
+- `2 Hint` Visita solo luoghi appartenenti ad una specifica regione.
+  - Inserire la regione:
+  
+- `3 Hint` Visita solo luoghi non appartenenti ad una specifica regione.
+  - Inserire la regione:
+  
+- `4 Hint` Prenota un albergo con al massimo con un determinato numero di stelle.
+  - Inserire il massimo numero di stelle:
+  
+- `5 Hint` Prenota un albergo con al massimo con un determinato numero di stelle.
+  - Prenota un albergo con al minimo con un determinato numero di stelle.
+  
+- `5 Hint` Visita mete turistiche.
+  - Inserire i tipi di turismo (separati da spazio): 
 
 **RULES**: this module does some parsing over "if then" rules type used to apply inference to over user requirements. "if-then" facts are then generated in the module `REASONING-RULES`.
 
@@ -85,7 +106,7 @@ These are:
 - `update-certainties-about-distances` updates the attribute `sum-certanties` for `alternative` facts according to computed trip distance, hotel booking nights and hotel certanty factors. 
 - `print-results` prints on screen the resulting alternatives sorted by `sum-certanties` descend order. This sorting is implemented by the `sort` function thuough a comparator exposed from main module `rating-sort`). So the first 5 alternatives are printed and the user can shut-down the system or refine again the criteria.
 
-## Heuristic
+## Scenario
 We have implemented an **admissible heuristic**, which means that it is *never wrong for excess* and that it is *consistent* (or *monotonic*) for graph search applications. [Artificial Intelligence: A Modern Approach, S.J. Russel & P. Norvig]
 
 Our heuristic associates to each node a cost that depends on the sum of:
@@ -94,233 +115,13 @@ Our heuristic associates to each node a cost that depends on the sum of:
 
 The algorithm will choose the optimal path based on this heuristic.
 
-## Sub-problems
+## Conclusion
 To solve the non-termination due to the great complexity of the problem, it was necessary to divide it into several sub-problems, each of which deals with satisfying one of the previously mentioned cities.
 
 The number of sub-problems into which the original problem has been divided appears to be
 equal to the number of cities to be met; some of them have been further subdivided in such a way as to contain the `branching factor`.
 
 This has precluded the possibility of finding the optimal solution of the whole problem but it guaranteed us the optimality of the sub-solutions. Therefore, the solution proposed by us turns out to be sub-optimal.
-
-# Modeling the problem
-The problem was modeled using, in combination, both ordered facts and non-ordered facts, contained within the `templates.clp` file, with prevalence of the first kind. The reason for this is to be found in the varied number of constructs usable only with ordered facts made available by CLIPS itself.
-
-Where we have not considered necessary such constructs, we used non-ordered facts.
-
-## The A* implementation in CLIPS
-The A* implementation in the CLIPS language was done through the subdivision in the following modules:
-
-- **Main**, which is responsible for instantiating the initial node and printing the total cost and the costs of the individual actions of the solution,
-- **Expand**, that focus the algorithm node expansion on the actual best path cost,
-- **Check**, which deals with checking whether within the various facts `status` the desired goal is contained,
-- **New**, that:
-  - deals both with updating the statistics (*closed*, *worse*, *better*) related to the algorithm,
-  - ensures the aciclicity of the graph,
-  - ensures that there is not more than one path that leads to equal open nodes. 
-
-
-Basic data structures are needed to implement the A* algorithm. 
-To realize them in CLIPS, ordered facts has been used.
-
-They are:
-- `node`, which represent the node currently examined,
-- `newnode`, which expand, after making a action, the new nodes,
-- `state`, which configure the environment through the a priori knowledge bases,
-- `status`, which maintain informations about cities and means of transport. 
-A precise configuration of a state of the state space is represented by the set of ordered facts `status` having the same value as the `ident` slot.
-
-For goal modeling purpose, an ordered fact called `goal` was used.
-By necessity, two goals have been modeled: one concerning cities and the other concerning means of transport.
-
-## Persistency Problem and its resolution in CLIPS
-To solve the persistency problem we have decided to use the `do-for-all-facts` CLIPS construct which cycles over any facts contained into the CLIPS Agenda matching a specified template. Each iteration duplicates any `status` fact present in the parent node that was and which still is `TRUE` in the child node.
-
-## Knowledge Bases
-The knowledge bases contain the cities and the vehicles necessary for satisfaction of the various sub-elements. 
-They are contained, as described above, in an ordered fact called `state`, which represents the **root** of the graph on which we perform the search in the states space.
-
-## Modeling sub-problems
-Our sub-problems have been divided into:
-
-**1. TO**: subgraph with Turin (TO), Rome (RM) and Palermo (PA). 
-We meet Turin object A needs by plane (`vehicle_6`) which is located in PA.
-
-**2. MI**: subgraph with Milan (MI), Rome (RM), Naples (NA), Bari (BA) and Reggio Calabria (RC). We meet Milan object A needs using two vans (`vehicle_4` and `vehicle_5`) which are located in RM and by plane (`vehicle_7`) located in MI. 
-
-The original subproblem has been divided into:
-
-- Transfer of type A goods from RC to NA,
-- Transfer of 10 A goods to MI,
-- Transfer of remaining 20 A goods to MI.
-
-**3. VE**: subgraph with Venice (VE) and Bologna (BO). We meet Venice object B needs by van (`vehicle_2`) located in BO. 
-
-**4. GE**: subgraph with Genoa (GE), Turin (TO), Milan (MI) and Bologna (BO). We meet Genoa object B need by van (`vehicle_1`) located in BO. The original subproblem has been divided into:
-
-- Shift van (`vehicle_1`) from BO to TO,
-- Transfer of B goods with `vehicle_1` from TO to GE.
-
-
-**5. BA**: subgraph with Bari (BA), Milano (MI) and Bologna (BO). We meet Bari object B needs by van (`vehicle_3`) located in BO and by plane (`vehicle_7`) located in MI. 
-
-The original subproblem has been divided into:
-
-- Transfer of type B goods from BO to MI with van (`vehicle_3`),
-- Transfer by plane (`vehicle_7`) of previously displaced goods from MI to BA.
-
-**6. RC**: subgraph with Reggio Calabria (RC) and Naples (NA). We meet Reggio Calabria object B needs by van (`vehicle_5`) located in NA.
-
-**7. NA_PA**: subgraph with Naples (NA), Palermo (PA) and Genoa (GE). We meet both Naples and Genoa object needs by ship (`vehicle_8`) which is located in GE.
-
-
-**8. RM**: subgraph with Rome (RM), Turin (TO) and Milan (MI). We meet Rome object C needs by plane (`vehicle_6`) which is located in TO. 
-
-**9. BO**: subgraph with Bologna (BO) and Venice (VE). We meet Bologna object C needs by van (`vehicle_2`) located in VE. 
-
-
-The original subproblem has been divided into:
-
-- Transfer of type C goods from MI to TO with van (`vehicle_3`),
-- Transfer by plane (`vehicle_6`) of previously displaced goods from TO to RM.
-
-
-## Domain rules
-The domain rules are contained in the `domain_rules.clp` file.
-
-In practice, we divided each of them in the following way:
-- `load-prod` and `load-store` are the rules involved in the **load** action. 
-  - `load-prod` is used to load any of the object **produced** by the cities into any means of transport which is located in those cities,
-  - `load-store` is used to load any of the object **stored** by the cities into any means of transport which is located in those cities.
-  
-- `unload-need` and `unload-store` are the rules involved in the **unload** action.
-  - `unload-need` is used to unload any of the object **needed** by each cities referred by our goals, 
-  - `unload-store` is used to unload any of the object **not produced** and **not needed** by the cities to store them.
-  
-- `shift` is the rule involved in the **shift** action which is used to change the location of any means of transport. 
-
-# Utilities
-They are contained within the `utils` folder.
-
-The **functions** are contained within the `functions.clp` file.
-They are:
-- `travel_cost_evaluation` calculates, given the means of transport used and the distance from travel, the cost of the shift
-- `find_heuristic_costs` takes care of calculating the value of the heuristic used
-- `string_comparator` compares two strings passed as parameters
-- `prepare_string` produces a string that concatenates all of their `status` having the same value as the `ident` slot. 
-The resulting string is representative of the configuration of that state.
-- `sum_up_costs` is responsible for calculating the total cost of the solution and the costs of the sub-solutions.
-
-The **rules** are contained within the `rules.clp` file, responsible of producing facts and performing calculations, supporting the calculation of the heuristic.
-
-The `cf_distances.clp` file contains:
-- `h_distance`, ordered fact which represents the crow flies distance; used for the calculation of the heuristic
-- `distance`, not ordered facts which represents the crow flies distance that can actually be traveled and the specific means of transport which can be used to do it.
-
-# Conclusions
-The sub-problems have been satitisfied with the following actions:
-
-**1. TO**
-
- ```
-Eseguo azione unload-need con costo 60 (transport plane 1 TO 6 city TO 10 B 6 A 0 C carries 6 6 A)
- Eseguo azione shift con costo 836 (transport plane 1 RM 6 city RM 0 A 5 C 0 B city TO 10 B 6 A 0 C)
- Eseguo azione load-prod con costo 60 (transport plane 7 RM 6 city RM 6 A 5 C 0 B)
- Eseguo azione shift con costo 836 (transport plane 7 TO 6 city TO 10 B 6 A 0 C city RM 6 A 5 C 0 B)
- Eseguo azione unload-need con costo 40 (transport plane 3 TO 6 city TO 10 B 10 A 0 C carries 6 4 A)
- Eseguo azione unload-need con costo 30 (transport plane 0 TO 6 city TO 10 B 13 A 0 C carries 6 3 A)
- Eseguo azione shift con costo 836 (transport plane 0 RM 6 city RM 6 A 5 C 0 B city TO 10 B 13 A 0 C)
- Eseguo azione load-prod con costo 40 (transport plane 4 RM 6 city RM 10 A 5 C 0 B)
- Eseguo azione shift con costo 836 (transport plane 4 TO 6 city TO 10 B 13 A 0 C city RM 10 A 5 C 0 B)
- Eseguo azione shift con costo 745 (transport plane 4 PA 6 city PA 0 A 5 C 0 B city TO 10 B 13 A 0 C)
- Eseguo azione load-prod con costo 30 (transport plane 7 PA 6 city PA 3 A 5 C 0 B)
- Eseguo azione shift con costo 1995 (transport plane 7 TO 6 city TO 10 B 13 A 0 C city PA 3 A 5 C 0 B)
- Eseguo azione unload-need con costo 70 (transport plane 0 TO 6 city TO 10 B 20 A 0 C carries 6 7 A)
- Eseguo azione shift con costo 745 (transport plane 0 PA 6 city PA 3 A 5 C 0 B city TO 10 B 20 A 0 C)
- Eseguo azione load-prod con costo 70 (transport plane 7 PA 6 city PA 10 A 5 C 0 B)
- ```
- 
- `Esiste soluzione con costo 7229`
-
-**2. MI**
-
-- subproblem a.
-
-```
-Eseguo azione unload-store con costo 40 (transport van 0 NA 5 city NA 5 B 5 C 16 A carries 5 4 C)
- Eseguo azione shift con costo 462 (transport van 0 RC 5 city RC 0 A 5 B 0 C city NA 5 B 5 C 16 A)
- Eseguo azione load-prod con costo 40 (transport van 4 RC 5 city RC 4 A 5 B 0 C)
- Eseguo azione shift con costo 462 (transport van 4 NA 5 city NA 5 B 5 C 16 A city RC 4 A 5 B 0 C)
- Eseguo azione unload-store con costo 40 (transport van 0 NA 5 city NA 5 B 5 C 12 A carries 5 4 C)
- Eseguo azione shift con costo 462 (transport van 0 RC 5 city RC 4 A 5 B 0 C city NA 5 B 5 C 12 A)
- Eseguo azione load-prod con costo 40 (transport van 4 RC 5 city RC 8 A 5 B 0 C)
- Eseguo azione shift con costo 462 (transport van 4 NA 5 city NA 5 B 5 C 12 A city RC 8 A 5 B 0 C)
- Eseguo azione unload-store con costo 40 (transport van 0 NA 5 city NA 5 B 5 C 8 A carries 5 4 C)
- Eseguo azione shift con costo 462 (transport van 0 RC 5 city RC 8 A 5 B 0 C city NA 5 B 5 C 8 A)
- Eseguo azione load-prod con costo 40 (transport van 4 RC 5 city RC 12 A 5 B 0 C)
- Eseguo azione shift con costo 462 (transport van 4 NA 5 city NA 5 B 5 C 8 A city RC 12 A 5 B 0 C)
- Eseguo azione unload-store con costo 40 (transport van 0 NA 5 city NA 5 B 5 C 4 A carries 5 4 C)
- Eseguo azione shift con costo 462 (transport van 0 RC 5 city RC 12 A 5 B 0 C city NA 5 B 5 C 4 A)
- Eseguo azione load-prod con costo 40 (transport van 4 RC 5 city RC 16 A 5 B 0 C)
- Eseguo azione shift con costo 462 (transport van 4 NA 5 city NA 5 B 5 C 4 A city RC 16 A 5 B 0 C)
- Eseguo azione unload-store con costo 40 (transport van 0 NA 5 city NA 5 B 5 C 0 A carries 5 4 C)
- Eseguo azione shift con costo 462 (transport van 0 RC 5 city RC 16 A 5 B 0 C city NA 5 B 5 C 0 A)
- Eseguo azione load-prod con costo 40 (transport van 4 RC 5 city RC 20 A 5 B 0 C)
- Eseguo azione shift con costo 462 (transport van 4 NA 5 city NA 5 B 5 C 0 A city RC 20 A 5 B 0 C)
- Eseguo azione shift con costo 219 (transport van 4 RM 5 city RM 0 A 5 C 0 B city NA 5 B 5 C 0 A)
-```
- 
-`Esiste soluzione con costo 5239`
-
-- subproblem b.
-
-```
-Eseguo azione unload-need con costo 30 (transport plane 4 MI 7 city MI 5 C 23 A 0 B carries 7 3 A)
- Eseguo azione shift con costo 888 (transport plane 4 BA 7 city BA 0 A 5 B 0 C city MI 5 C 23 A 0 B)
- Eseguo azione load-prod con costo 30 (transport plane 7 BA 7 city BA 3 A 5 B 0 C)
- Eseguo azione shift con costo 888 (transport plane 7 MI 7 city MI 5 C 23 A 0 B city BA 3 A 5 B 0 C)
- Eseguo azione unload-need con costo 70 (transport plane 0 MI 7 city MI 5 C 30 A 0 B carries 7 7 A)
- Eseguo azione shift con costo 888 (transport plane 0 BA 7 city BA 3 A 5 B 0 C city MI 5 C 30 A 0 B)
- Eseguo azione load-prod con costo 70 (transport plane 7 BA 7 city BA 10 A 5 B 0 C)
- Eseguo azione shift con costo 888 (transport plane 7 MI 7 city MI 5 C 30 A 0 B city BA 10 A 5 B 0 C)
- ```
- 
-`Esiste soluzione con costo 3752`
-
-- subproblem c.
-
-```
-Eseguo azione unload-need con costo 60 (transport plane 1 MI 7 city MI 5 C 6 A 0 B carries 7 6 A)
- Eseguo azione shift con costo 955 (transport plane 1 NA 7 city NA 5 B 5 C 0 A city MI 5 C 6 A 0 B)
- Eseguo azione load-store con costo 60 (transport plane 7 NA 7 city NA 5 B 5 C 6 A)
- Eseguo azione shift con costo 955 (transport plane 7 MI 7 city MI 5 C 6 A 0 B city NA 5 B 5 C 6 A)
- Eseguo azione unload-need con costo 70 (transport plane 0 MI 7 city MI 5 C 13 A 0 B carries 7 7 A)
- Eseguo azione shift con costo 955 (transport plane 0 NA 7 city NA 5 B 5 C 6 A city MI 5 C 13 A 0 B)
- Eseguo azione load-store con costo 70 (transport plane 7 NA 7 city NA 5 B 5 C 13 A)
- Eseguo azione shift con costo 955 (transport plane 7 MI 7 city MI 5 C 13 A 0 B city NA 5 B 5 C 13 A)
- Eseguo azione unload-need con costo 70 (transport plane 0 MI 7 city MI 5 C 20 A 0 B carries 7 7 A)
- Eseguo azione shift con costo 955 (transport plane 0 NA 7 city NA 5 B 5 C 13 A city MI 5 C 20 A 0 B)
- Eseguo azione load-store con costo 70 (transport plane 7 NA 7 city NA 5 B 5 C 20 A)
- Eseguo azione shift con costo 955 (transport plane 7 MI 7 city MI 5 C 20 A 0 B city NA 5 B 5 C 20 A)
-```
- 
-`Esiste soluzione con costo 6130`
-
-
-For each subproblem, once the program find the solution, it asserts an ordered fact named `file_total_cost` that contains the cost for that solution and write it in the `projectCosts.fct` file.
-The total cost is then calculated, by a function named `sum_up_costs` contained in `functions.clp` file. 
-This function sums all over the `file_total_cost` facts and calculate the overall cost in this way:
-
-<p align="center">
-  <img src="http://latex.codecogs.com/gif.latex?cities%20%3D%20%5Cleft%20%5C%7BTO%2C%20%5C%3A%20MI%2C%5C%3A%20VE%2C%5C%3A%20GE%2C%5C%3A%20BO%2C%5C%3A%20RM%2C%5C%3A%20NA%2C%5C%3A%20PA%2C%5C%3A%20BA%2C%5C%3A%20RC%20%5Cright%20%5C%7D%20%5C%5C%20%5C%5C"/>
-</p>
-
-<p align="center">
-  <img src="http://latex.codecogs.com/gif.latex?overall%5C_%20%5C%20cost%5C%20%3D%20%5Csum_%7Bcity%3A%5C%3Acities%7Dsubproblem%5C_%20%5C%20cost%28city%29"/>
-</p>
-
-```
-Il costo totale è : 31144
-```
 
 ## Authors
 
