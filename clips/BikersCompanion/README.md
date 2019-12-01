@@ -117,9 +117,11 @@ Infine vi Ë una piccola parte prettamente algoritmica utilizzata solamente per 
 Also solutions splitting many short days time units in the same town over different hotels are avoided, infact is not reasonable to spend 4 days in the same town and every day in a different hotel.
 
 ## Scenario
-Here a scenario is shown 
-- cost of operations (load or unload) on wares,
-- cost of the journey as the crow flies in the case of a move.
+Here a scenario is shown the user choosing the hint 1 only and inputing the following data:
+- 4 days
+- 4 people
+- 1500€
+- chosen towns Nuoro, Cagliari and Salerno
 
 <p>
 <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/clips/BikersCompanion/img/prototype.jpeg"/>
