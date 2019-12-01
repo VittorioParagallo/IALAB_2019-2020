@@ -108,13 +108,13 @@ These are:
 - `print-results` prints on screen the resulting alternatives sorted by `sum-certanties` descend order. This sorting is implemented by the `sort` function thuough a comparator exposed from main module `rating-sort`). So the first 5 alternatives are printed and the user can shut-down the system or refine again the criteria.
 
 ## Inference details
-Il motore inferenziale Ë sulla falsa riga di wine.clp, nel quale l'utente immette i propri requisiti sul viaggio che intende fare e il sistema esperto combina i vari fatti di tipo attribute immessi dall'utente e genera dei nuovi fatti di tipo best-attribute per indicare l'ipotecica miglior scelta prodotta dal sistema esperto sulla base dei dati immessi dall'utente.
-Dopo vi Ë la generazione degli hotel-attribute che combina i vari attributi best-attribute con gli hotel presenti nel sistema.
+The user input attributes are combined to get new `best-attribute` facts type as inizial best solutions.
+Then `best-attribute` are combined with hotel-attribute according to hotel facts present in knwoledge base.
+Finally the booking days distributions flow is managed by an enumeration algorithm, the booking days are distributed over the most feasible hotel by generating every possible assignment and proceding by successive divisions.
+Alternatives assigning the whole amount of days to a single hotel or subset are penalized, so that a more balanced distribution can score best.
+Identical solutions over the towns are avoided as well (Ex. 3 days in Milan and 2 in Rome is avoided if there is already the solution 3 days in Rome and 2 in Milan).
 Infine vi Ë una piccola parte prettamente algoritmica utilizzata solamente per la distribuzione dei giorni nei vari hotel "promettenti".
-Si tratta di un algoritmo enumerativo che genera ogni possibile assegnazione di tempo ai vari hotels effettuando divisioni successive.
-Infine vengono sfavorite quelle alternative dove vengono assegnati giorni ad un unico hotel o ad un piccolo sottoinsieme (vengono infatti favorite le soluzioni dove il flusso Ë maggiormente distribuito).
-Vengono scartate soluzioni identiche in termini di citt‡ (es. passare 3 giorni a milano e 2 giorni a Roma Ë da scartare se vi Ë gia una soluzione in cui si passano 3 giorni a Roma e 2 a Milano).
-Sono infine scartare le alternative tali per cui nella stessa soluzione vi Ë una ripartizione dei giorni fra due hotels della stessa citt‡.
+Also solutions splitting many short days time units in the same town over different hotels are avoided, infact is not reasonable to spend 4 days in the same town and every day in a different hotel.
 
 ## Scenario
 We have implemented an **admissible heuristic**, which means that it is *never wrong for excess* and that it is *consistent* (or *monotonic*) for graph search applications. [Artificial Intelligence: A Modern Approach, S.J. Russel & P. Norvig]
