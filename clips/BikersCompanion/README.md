@@ -68,7 +68,7 @@ The system is structured in 7 modules.
 
 **FORMAT-ATTRIBUTES**: implements all the needed rules to format `attribute` fact types given in input by the user during che main prompt process.
 
-**CHOOSE-HINTS**:  handles the interation with the user to define the journey requirements. It shows a list of hints to help the user to express his preferences and prompts a choice. Once the user expresses his preference the system confirms the choice with a message and clears the hint item from the list, then the newly reduced list is shown again to the user do that he can add more choices. So the system iterates over the process till the user chooses to stop inputing precerences or there are no more questions. 
+**CHOOSE-HINTS**:  handles the interation with the user to define the journey requirements. It shows a list of hints to help the user to express his preferences and prompts a choice. Once the user expresses his preference the system confirms the choice with a message and clears the hint item from the list, then the newly reduced list is shown again to the user do that he can add more choices. So the system iterates over the process till the user chooses to stop inputing preferences or there are no more questions. 
 In the interation process the loop is allowed by a specific fact (in the same module's agenda) modified on every interation (retracted and differently asserted again) to sort the rules execution flow.
 
 **HINTS**: defines the rule `ask-a-question` to prompt the user input through the function `ask-question` (exposed from MAIN module). It retrieves unformatted `attribute` facts type. Two more rules are implemented to hadle the preconditions to list or not hint items.
@@ -117,7 +117,7 @@ Then `best-attribute` are combined with hotel-attribute according to hotel facts
 Finally the booking days distributions flow is managed by an enumeration algorithm, the booking days are distributed over the most feasible hotel by generating every possible assignment and proceding by successive divisions.
 Alternatives assigning the whole amount of days to a single hotel or subset are penalized, so that a more balanced distribution can score best.
 Identical solutions over the towns are avoided as well (Ex. 3 days in Milan and 2 in Rome is avoided if there is already the solution 3 days in Rome and 2 in Milan).
-Infine vi Ë una piccola parte prettamente algoritmica utilizzata solamente per la distribuzione dei giorni nei vari hotel "promettenti".
+At least there is a little algorithmic part that compute the days distribuition of the hotels that are "promising".
 Also solutions splitting many short days time units in the same town over different hotels are avoided, infact is not reasonable to spend 4 days in the same town and every day in a different hotel.
 
 ## Scenario
