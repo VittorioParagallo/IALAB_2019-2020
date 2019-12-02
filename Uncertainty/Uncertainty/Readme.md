@@ -40,13 +40,13 @@ Nella maggior parte dei casi l’ottimizzazione ha ridotto il tempo di inferenza
 In sostanza l’ottimizzazione sembra essere valida, ma non ne siamo certi dato che non si è potuto confrontare il risultato con SamIam.
 
 ## Test sulle reti Bayesiane
-Per fare i test sulle reti bayesiane del repository fornito, è stato utilizzato il parser dei file .bif di Scaletta.
-Alcune reti tra cui Barley, Insurance, Hailfinder, Hepar2 e Sachs hanno i file .net diversi rispetto i file .bif.
-Di conseguenza le probabilità calcolate o addirittura gli assegnamenti nelle reti più grandi non corrispondono.
-L’inferenza MPE non va su tutte le reti, su quelle più grandi non termina perché i fattori sono troppo grandi oppure perché finisce la memoria RAM.
-Con la classe MapTest ho potuto verificare che l’inferenza richiede più tempo man mano che il numero di variabili MAP raggiunge la metà delle variabili disponibili.
-Mentre quando le variabili di MAP sono poche o quasi tante quante il totale l’inferenza richiede poco tempo.
-L’ottimizzazione ha effetto sui tempi dell’inferenza solo se vengono scelte delle variabili MAP vicino alla radice, queste avranno molti non antenati che verranno eliminati e quindi non calcolati, se invece viene scelta una variabile vicino alle foglie questo farà sì che nel calcolo rimarranno un maggior numero di variabili, rallentando la computazione.
+Per fare i test sulle reti bayesiane del repository fornito, è stato utilizzato il parser dei file .bif di Scaletta.<br>
+Alcune reti tra cui Barley, Insurance, Hailfinder, Hepar2 e Sachs hanno i file .net diversi rispetto i file .bif.<br>
+Di conseguenza le probabilità calcolate o addirittura gli assegnamenti nelle reti più grandi non corrispondono.<br>
+L’inferenza MPE non va su tutte le reti, su quelle più grandi non termina perché i fattori sono troppo grandi oppure perché finisce la memoria RAM.<br>
+Con la classe MapTest ho potuto verificare che l’inferenza richiede più tempo man mano che il numero di variabili MAP raggiunge la metà delle variabili disponibili.<br>
+Mentre quando le variabili di MAP sono poche o quasi tante quante il totale l’inferenza richiede poco tempo.<br>
+L’ottimizzazione ha effetto sui tempi dell’inferenza solo se vengono scelte delle variabili MAP vicino alla radice, queste avranno molti non antenati che verranno eliminati e quindi non calcolati, se invece viene scelta una variabile vicino alle foglie questo farà sì che nel calcolo rimarranno un maggior numero di variabili, rallentando la computazione.<br>
 L’aumentare del numero di variabili di evidenza, riduce il tempo di inferenza, però aumenta quello necessario per il calcolo della costante di normalizzazione.
 
 ## Reti utilizzate
