@@ -767,7 +767,7 @@
 	(distance (loc1 Livorno) (loc2 Siena) (dist 79))
 	(distance (loc1 Livorno) (loc2 Savona) (dist 233))
 	(distance (loc1 Livorno) (loc2 Salerno) (dist 487))
-	(distance (loc1 MedioCampidano) (loc2 OlbiaTempio) (dist 197))
+	(distance (loc1 MedioCampidano) (loc2 OlbiaTempio) (dist 97))
 	(distance (loc1 MedioCampidano) (loc2 Nuoro) (dist 89))
 	(distance (loc1 MedioCampidano) (loc2 Siena) (dist 670))
 	(distance (loc1 MedioCampidano) (loc2 Savona) (dist 666))
