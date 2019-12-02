@@ -32,12 +32,12 @@ dove K è il Kalman Gain che si calcola così:<br>
 <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/formula3.png"/><br>
 
 ## Esecuzione
-Per utilizzare il programma bisogna lanciare il comando java -jar .\KallmanProject.jar.
-È possibile impostare dei parametri per l’esecuzione, si possono inserire al massimo 3 parametri i primi due impostano il rumore per l’esperimento, mentre il terzo modifica la distribuzione iniziale.
-I primi due parametri prendono come argomento i seguenti valori “low”, “mid” e “high”.
-Il primo parametro è il rumore di osservazione, il secondo invece di processo.
-Il terzo parametro se omesso non modifica la distribuzione, altrimenti scrivendo rand viene modificata la distribuzione iniziale.
-I parametri vanno messi in ordine, di default il rumore è mid per entrambi i rumori e la distribuzione iniziale parte da 0 0.
+Per utilizzare il programma bisogna lanciare il comando java -jar .\KallmanProject.jar.<br>
+È possibile impostare dei parametri per l’esecuzione, si possono inserire al massimo 3 parametri i primi due impostano il rumore per l’esperimento, mentre il terzo modifica la distribuzione iniziale.<br>
+I primi due parametri prendono come argomento i seguenti valori “low”, “mid” e “high”.<br>
+Il primo parametro è il rumore di osservazione, il secondo invece di processo.<br>
+Il terzo parametro se omesso non modifica la distribuzione, altrimenti scrivendo rand viene modificata la distribuzione iniziale.<br>
+I parametri vanno messi in ordine, di default il rumore è mid per entrambi i rumori e la distribuzione iniziale parte da 0 0.<br>
 
 Esempio comando:
 java -jar .\KallmanProject.jar high low rand
