@@ -5,8 +5,8 @@ Nel nostro progetto il filtro di kalman è stato applicato alla simulazione di u
 Per l’implementazione del Kalman Filter abbiamo utilizzato la libreria Commons Math di Apache.
 
 Lo stato del processo è modellato con un vettore colonna che indica la posizione e la velocità correnti.
-E la matrice di covarianza di errore P che indica la correlazione tra le variabili posizione e velocità.
-<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/formula.png"/><br>
+E la matrice di covarianza di errore P che indica la correlazione tra le variabili posizione e velocità.<br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/formula.png"/><br><br>
 I parametri che vengono utilizzati nella simulazione sono:
 * A: è la matrice di trasformazione, modella come la velocità modifica lo stato.
 * B: è la matrice di controllo, modella le influenze esterne che possiamo prevedere nel nostro caso come l’accelerazione modifica lo stato.
