@@ -1,3 +1,5 @@
+:- dynamic finale/1.
+:- dynamic occupata/1.
 % Min
 list_min([L|Ls], Min) :-
 	list_min(Ls, L, Min).
