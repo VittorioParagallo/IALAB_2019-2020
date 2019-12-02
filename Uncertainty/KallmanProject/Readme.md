@@ -6,8 +6,7 @@ Per l’implementazione del Kalman Filter abbiamo utilizzato la libreria Commons
 
 Lo stato del processo è modellato con un vettore colonna che indica la posizione e la velocità correnti.
 E la matrice di covarianza di errore P che indica la correlazione tra le variabili posizione e velocità.
-
-
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/formula.png"/><br>
 I parametri che vengono utilizzati nella simulazione sono:
 * A: è la matrice di trasformazione, modella come la velocità modifica lo stato.
 * B: è la matrice di controllo, modella le influenze esterne che possiamo prevedere nel nostro caso come l’accelerazione modifica lo stato.
@@ -16,39 +15,21 @@ I parametri che vengono utilizzati nella simulazione sono:
 * R: è il rumore di osservazione, modella l’incertezza delle misure.
 * Q: è il rumore del processo, modella le influenze esterne che non possiamo prevedere ad esempio una ruota che slitta.
 
-
-
-
-
-
-
-
-
-
-
-
 ## La simulazione
 Ogni simulazione effettua 60 step, partendo da 0.
 Il tempo e la velocità incrementano di 0.1 a ogni step.
 
 Ogni ciclo effettua due operazioni:
+<br><img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/formula1.png"/>
 1. la predizione: viene stimato lo stato successivo basandosi sulle informazioni dello stato precedente e le influenze esterne.
-
 1. la correzione:
-   1. Viene effettuata una simulazione della misurazione.<br>Le misurazioni vengono simulate con questa formula:<br>z=H*X+noise<br>dove X è il vettore che rappresenta lo stato reale.
+   1. Viene effettuata una simulazione della misurazione.<br>Le misurazioni vengono simulate con questa formula:<br>z=H\*X+noise<br>dove X è il vettore che rappresenta lo stato reale.
    1. Le informazioni ottenute vengono aggiunte alla stima effettuata dalla predizione per ottenere una stima migliore.
 
-La formula finale che aggiorna lo stato e la covarianza, tenendo conto sia dello stato precedente che la misurazione è la seguente:
-
-dove K è il Kalman Gain che si calcola così:
-
-
-
-
-
-
-
-
+La formula finale che aggiorna lo stato e la covarianza, tenendo conto sia dello stato precedente che la misurazione è la seguente:<br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/formula2.png"/><br>
+dove K è il Kalman Gain che si calcola così:<br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/formula3.png"/><br>
 
 ## Esecuzione
 Per utilizzare il programma bisogna lanciare il comando java -jar .\KallmanProject.jar.
