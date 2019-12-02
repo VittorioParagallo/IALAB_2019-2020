@@ -47,17 +47,18 @@ java -jar .\KallmanProject.jar high low rand
 I parametri del rumore impostano 3 livelli di rumore predefiniti.
 Per il rumore dell’osservazione viene modificata la variabile measurementNoise, che modifica la matrice R e cambia il comportamento durante la simulazione della misurazione.
 MeasurementNoise può assumere i seguenti valori: 0,00001, 10, 100.
-Invece per il rumore del processo viene modificata la matrice Q che può assumere i seguenti valori.
-1)        2)        3)
+<br>Invece per il rumore del processo viene modificata la matrice Q che può assumere i seguenti valori.
+```
+1)         2)           3)
 0 0        10  0        100   0
 0 0        0  10        0   100
-
+```
 Rumore “misurazione” “processo”:
-low low: le predizioni sono corrette l’errore per entrambe le variabili è nell’ordine di 10-2, il kalman gain è vicino a 0 il che significa che ci si fida di più della predizione che della misurazione.
-mid mid: l’errore varia da 1 a 10 per entrambe le variabili , il kalman gain è salito sta sempre intorno a 0.2
-high high: l’errore varia da 10 a 100 per entrambe le variabili, il kalman gain rimane intorno a 0.13
-low high: l’errore varia è basso vicino allo 0, il kalman gain è salito a 0,5 il che indica che dobbiamo fidarci di più delle misurazioni.
-high low: l’errore varia 1 a 3 per la posizione, il kalman gain è vicino allo 0 quindi ci si fida di più delle predizioni, il rumore sulle misurazioni ha più effetto del rumore sul processo.
+* low low: le predizioni sono corrette l’errore per entrambe le variabili è nell’ordine di 10-2, il kalman gain è vicino a 0 il che significa che ci si fida di più della predizione che della misurazione.
+* mid mid: l’errore varia da 1 a 10 per entrambe le variabili , il kalman gain è salito sta sempre intorno a 0.2
+* high high: l’errore varia da 10 a 100 per entrambe le variabili, il kalman gain rimane intorno a 0.13
+* low high: l’errore varia è basso vicino allo 0, il kalman gain è salito a 0,5 il che indica che dobbiamo fidarci di più delle misurazioni.
+* high low: l’errore varia 1 a 3 per la posizione, il kalman gain è vicino allo 0 quindi ci si fida di più delle predizioni, il rumore sulle misurazioni ha più effetto del rumore sul processo.
 
 ### Variare la distribuzione iniziale dello stato
 Utilizzando il parametro rand, la posizione e la velocità iniziale per il filtro vengono randomizzate tra 0 e 10.
