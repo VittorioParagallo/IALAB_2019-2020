@@ -54,25 +54,24 @@ L’aumentare del numero di variabili di evidenza, riduce il tempo di inferenza,
 * Earthquake
 * Asia
 * Sachs
-### Reti medie 20-50 nodi
-* Insurance
-* Barley
-### Reti grandi 50-100 nodi
-* Hailfinder
-* Hepar2
-### Reti molto grandi 100-1000 nodi
-* Andes
 
-### Reti Piccole
 Earthquake e Asia funzionano perfettamente con entrambe le inferenze e vengono calcolate nell’ordine dei millisecondi.
 Sachs ha gli assegnamenti che corrispondono, ma le probabilità diverse.
 
-### Reti Medie
+### Reti medie 20-50 nodi
+* Insurance
+* Barley
+
 Sia insurance che barley, danno risultati diversi rispetto a samiam
 
-### Reti Grandi
-Rete hepar2: va sia MPE che MAP variazione di qualche cifra decimale rispetto SAMIAM
-Rete hailfinder: va solo MAP e va quando si scelgono variabili vicino alla radice, diversi assegnamenti e cifre decimali
+### Reti grandi 50-100 nodi
+* Hailfinder
+* Hepar2
 
-### Reti Molto Grandi
-Rete andes: va solo MAP e va quando si scelgono variabili vicino alla radice, assegnamenti e cifre decimali identici.
+Per la rete hepar2 va sia MPE che MAP variazione di qualche cifra decimale rispetto SAMIAM,
+invece per la rete hailfinder va solo MAP e va quando si scelgono variabili vicino alla radice, diversi assegnamenti e cifre decimali
+
+### Reti molto grandi 100-1000 nodi
+* Andes
+
+Va solo MAP e va quando si scelgono variabili vicino alla radice, assegnamenti e cifre decimali identici.
