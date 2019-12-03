@@ -135,13 +135,12 @@ The system lists 5 alternatives and the user is satisfied.
 
 ## Conclusion
 Our expert system, after making inference on the data entered by the user, proposes a list of 5 valid
-possible alternatives, such that not exceed the budget entered by the user.
+possible alternatives, such that not exceed the budget entered by the user.<br>
 Finally numerous solutions are filtered before being proposed to the user and the ones remaining are 
-ordered by total certainty. In case such values are equal, the solutions are ordered by price.
-The code has been made modular to avoid the problems related to the activation of multiple rules that belong to different modules.
-The algorithmic part of the expert system was difficult to realize, because the language is not meant to
-write algorithms.
-The solutions proposed by the expert system usually satisfy user requests, exept the cases in which the user makes requests that are incoherents.
+ordered by total certainty. In case such values are equal, the solutions are ordered by price.<br>
+The code has been made modular to avoid the problems related to the activation of multiple rules that belong to different modules.<br>
+The algorithmic part of the expert system was difficult to realize, because the language is not meant to write algorithms.<br>
+The solutions proposed by the expert system usually satisfy user requests, exept the cases in which the user makes requests that are incoherents.<br>
 Our expert system consists of 6 suggestions offered to the user and therefore a clear possible improvement would simply be the widening of these suggestions for a more and more precise solution.
 
 ## Authors
