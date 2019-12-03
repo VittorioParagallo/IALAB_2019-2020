@@ -134,12 +134,15 @@ Here a scenario is shown the user choosing the hint 1 only and inputing the foll
 The system lists 5 alternatives and the user is satisfied.
 
 ## Conclusion
-To solve the non-termination due to the great complexity of the problem, it was necessary to divide it into several sub-problems, each of which deals with satisfying one of the previously mentioned cities.
-
-The number of sub-problems into which the original problem has been divided appears to be
-equal to the number of cities to be met; some of them have been further subdivided in such a way as to contain the `branching factor`.
-
-This has precluded the possibility of finding the optimal solution of the whole problem but it guaranteed us the optimality of the sub-solutions. Therefore, the solution proposed by us turns out to be sub-optimal.
+Our expert system, after making inference on the data entered by the user, proposes a list of 5 valid
+possible alternatives, such that not exceed the budget entered by the user.
+Finally numerous solutions are filtered before being proposed to the user and the ones remaining are 
+ordered by total certainty. In case such values are equal, the solutions are ordered by price.
+The code has been made modular to avoid the problems related to the activation of multiple rules that belong to different modules.
+The algorithmic part of the expert system was difficult to realize, because the language is not meant to
+write algorithms.
+The solutions proposed by the expert system usually satisfy user requests, exept the cases in which the user makes requests that are incoherents.
+Our expert system consists of 6 suggestions offered to the user and therefore a clear possible improvement would simply be the widening of these suggestions for a more and more precise solution.
 
 ## Authors
 
