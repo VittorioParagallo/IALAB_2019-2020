@@ -79,7 +79,13 @@ The mail folder is labirinth it contains:
 Two heuristics are avaliable in case of informed search: Manhattan distances and Euclidean distance.
 
 ### Search Algorithms
-In the search algorithms described here below we define a graph to visit in which every labirinth's room is a node. The root is the Enter room and the Exit is one of the children.
+In the search algorithms described here below we define a graph to explore a labirinth in which every labirinth's room correspond to a node. The root is the Enter room and the Exit is one of the children.
+
+##### `Iterative Deepening.pl` 
+Describes the rules to apply the iterative deepening by a deep first search (DFS) with increasing depth-limits. So the depth-limit starts from zero and the helper wrapper rule `iterative_deepening` defines the maximum number of iterations as the quantity of free rooms in the labirinth domain.
+ Then `iterative_deepening_aux` describes:
+  - 1 the recursive exploration of the space state. For every time a solution is not found at the end the depth-limit is incrised by 1 and the explorations starts again (completness);
+  - 2 a check case to verify a goal match (correctness and optimality).
 
 ##### `astar.pl` 
 implements the heuristic driven search algorithm A* through BFS. The code is structured in "helper method" (astar_aux) e "wrapper method" (astar), the seconds provides the init value to the first. The expanded node are tracked two sorted lists (open nodes and closed nodes) from standard Prolog library ordset.
@@ -100,13 +106,7 @@ In the first part the funtion "findall" is used to find reacheble room for the c
   - a first time discovered node;
   - a node already in the list of closed ones, but with lower F value;
   - a node already in the list of opened or closed nodes, but with an F value equal or major.
-  
-##### `Iterative Deepening.pl` 
-Describes the rules to apply the iterative deepening by a deep first search (DFS) with increasing depth-limits. So the depth-limit starts from zero and the helper wrapper rule `iterative_deepening` defines the maximum number of iterations as the quantity of free rooms in the labirinth domain.
- Then `iterative_deepening_aux` describes:
-  - 1 the recursive exploration of the space state. For every time a solution is not found at the end the depth-limit is incrised by 1 and the explorations starts again (completness);
-  - 2 a check case to verify a goal match (correctness and optimality).
-  
+    
 ## Statistics
 
 All the statistics have been reported in the `prolog-statistics.pdf` file. Here you can see two meaningful examples:
