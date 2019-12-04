@@ -15,12 +15,6 @@ TO check and analyze sourse code you can use [VSCode](https://code.visualstudio.
 
 This implementation allows to find a path to exit from a labirinth. the code will run on any labirint defined as KB if following the domain specification. The initial starting position inside the labirinth can be defined at runtime. More algorithms have been implemented to get a path with an informed or uninformed search. 
 
-### Project folders
-
-The mail folder is `labirinth` it contains:
-- 
-
-
 ### Domain
 
 - The labirinth is represented by a matrix with n*m and defined by the facts `num_righe(X)` and `num_col(Y)`;
