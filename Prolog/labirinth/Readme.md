@@ -29,7 +29,7 @@ This implementation allows to find a path to exit from a labirinth. the code wil
 File structure:
 
 
-### Folder structure
+### Folders description
 
 The mail folder is labirinth it contains: 
 - `azioni.pl` contains the set of actions allowed in the labirinth domain;
@@ -38,10 +38,30 @@ The mail folder is labirinth it contains:
 - `algorithms` folder contains the implementation of A*, iterative deepening and IDA*;
 - `rooms` folder contains more labirinths with different room sizes.
 
-#### Labyrinth
-
+#### Avaliable Labyrinths
+- 10 X 10
 <p align="center">
-  <img src="https://raw.githubusercontent.com/lamba92/prolog-project/master/stuff/labyrinth.png"/>
+  <img src="https://raw.githubusercontent.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/labirinth/rooms/Maze_10x10.png"/>
+</p>
+
+- 50 X 50
+<p align="center">
+  <img src="https://raw.githubusercontent.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/labirinth/rooms/Maze_50x50.png"/>
+</p>
+
+- 70 X 70
+<p align="center">
+  <img src="https://raw.githubusercontent.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/labirinth/rooms/Maze_70x70.png"/>
+</p>
+
+- 100 X 100
+<p align="center">
+  <img src="https://raw.githubusercontent.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/labirinth/rooms/Maze_100x100.png"/>
+</p>
+
+- 200 X 200
+<p align="center">
+  <img src="https://raw.githubusercontent.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/labirinth/rooms/Maze_200x200.png"/>
 </p>
 
 This domain represent a labyrinth using the predicate `pos(X, Y)` where `X` and `Y` are the agent position coordinates. Similarly the blue walls are represented by `occupied(pos(X, Y))`. `allowed/2` just checks if the action doesn't lead outside the labyrinth or inside a blue block, while `move/3` generate the new state.
