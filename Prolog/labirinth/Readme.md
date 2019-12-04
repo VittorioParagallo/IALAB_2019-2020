@@ -36,9 +36,7 @@ The mail folder is labirinth it contains:
 - `labgen_color.py` a python script to generate labirinths;
 - `output.pl` contains the labirinth to run the test on (can be replaced with any labirinth in folder labirinth);
 - `algorithms` folder contains the implementation of A*, iterative deepening and IDA*;
-- `cost(S, S1, C)` is used as function that given the input states `S` and `S1` calculate in `C` the cost of the transition from `S` to `S1`.
-- `heuristic.pl` contains the predicates used to calculate the heuristic of the specified domain.
-  - `heuristic(S, Sol, E)` is used to calculate the heuristic value `E` of state `S`; `Sol` is the solution of the relaxed problem, often ignored.
+- `rooms` folder contains more labirinths with different room sizes.
 
 #### Labyrinth
 
