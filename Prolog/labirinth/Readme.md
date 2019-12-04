@@ -23,16 +23,20 @@ This implementation allows to find a path to exit from a labirinth. the code wil
 - The occupied cells represent cells not allowed in any path and thus declared as `occupata(pos(A,B))`;
 - The labirinth exit room is defined by the fact `finale(pos(A,B))` there can be more of them and can be even not reacheable because of adiacent `occupied` rooms.
 
+
 ### Constraints
 - A labirinth has an enter room
 File structure:
 
-- A set of knowledge bases files for both labyrinth and tile game domain.
-- `actions.pl` contains the set of actions allowed in that domain with their transformations.
-  - The predicate `allowed(action, S)` checks if an `action` from a given state `S` is allowed. For each action there is an `allowed/2` predicate.
-  - `move(action, S, S1)` is used as a function where `action` is the action to apply in the given state `S`, `S1` in the new state where the action has led. Note that `move/3` does not check if `allowed/2`.
-  - `maxDepth(D)` unifies `D` with the maxium depth of the domain.
-  - `cost(S, S1, C)` is used as function that given the input states `S` and `S1` calculate in `C` the cost of the transition from `S` to `S1`.
+
+### Folder structure
+
+The mail folder is labirinth it contains: 
+- `azioni.pl` contains the set of actions allowed in the labirinth domain;
+- `labgen_color.py` a python script to generate labirinths;
+- `output.pl` contains the labirinth to run the test on (can be replaced with any labirinth in folder labirinth);
+- `algorithms` folder contains the implementation of A*, iterative deepening and IDA*;
+- `cost(S, S1, C)` is used as function that given the input states `S` and `S1` calculate in `C` the cost of the transition from `S` to `S1`.
 - `heuristic.pl` contains the predicates used to calculate the heuristic of the specified domain.
   - `heuristic(S, Sol, E)` is used to calculate the heuristic value `E` of state `S`; `Sol` is the solution of the relaxed problem, often ignored.
 
