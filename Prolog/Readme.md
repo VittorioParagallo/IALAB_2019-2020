@@ -17,3 +17,5 @@ i seguenti:<br>
 • metropolitana di Londra<br>
 • mondo dei blocchi<br>
 e tenendo conto della possibilità che il costo delle azioni non sia unitario. <br>
+<br>
+Il gruppo ha scelto il progetto del labirinto e presenta l'implementazione nella cartella \labirinth
