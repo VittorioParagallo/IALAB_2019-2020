@@ -78,30 +78,18 @@ This domain represent a labyrinth using the predicate `pos(X, Y)` where `X` and 
 
 The heuristic used here is the manhattan distance that ignores the blue squares.
 
-#### 8/15 Tile Game
+### Avaliable heuristic
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lamba92/prolog-project/master/stuff/tiles.png"/>
-</p>
-
-Both domains are represent by using two predicates (this one below represents a 8 tile game):
-
-`initialPosition([2,4,3,7,1,6,v,5,8]).`
-`finalPosition([1,2,3,4,5,6,7,8,v]).`
-
-The game columns/rows number is expressed by `dim(n)` inside the knowledge bases files, the order of the tiles is expressed by the above mentioned list of lenght `n*n` (this domain has `n = 3` which means a list lenght of 9).
-
-The `v` inside the list represent the void tile that can be moved up, down, left and right. To check if the action is `allowed/2` the predicate uses `nth0/3` to get the position of the void tile, then through some mathematical magic, checks if the action can be done or not.
-
-The heuristic used here is the sum of the Manhattan distances of every tile from its desidered position. Some other mathematical magic helps us doing the job once again.
+Two heuristics are avaliable in case of informed search: Manhattan distances and Euclidean distance.
 
 ### Search Algorithms
 
 - `iterative_deepening.pl` implements an iterative deepening search exploiting the innate Prolog's depth search inside the space of possibile variables unifications. The code is pretty self explanatory.
 
-- `astar.pl` implements the heuristic driven search algorithm A*. The basic data structure is the predicate `node/4`. The algorithm is implemented by 3 predicates:
-  - `astar/1`: allows to starts the search and fill the only parameter with a list of moves to reach the solution.
-  - `astar_search/3`: the predicates that implements the search; it has 3 parameters, the first is a list of the frontier nodes, the second is a list of already visited ones, while the third is a list of actions that represent the solution.
+##### `astar.pl` 
+implements the heuristic driven search algorithm A*. The code is structured in "helper method" (astar_aux) e "wrapper method" (astar), the seconds provides the init value to the first. So `astar_aux` declares:
+  - recursive part explores state space (completeness).
+  - control part checks, considering the initial state, wether the most near final state has been found (correctness and optimality)  the predicates that implements the search; it has 3 parameters, the first is a list of the frontier nodes, the second is a list of already visited ones, while the third is a list of actions that represent the solution.
   - `generateSons/4`: allows to generate the children of a given node, checking all the allowed actions in that node.
 
 - `idastar.pl` implements the heuristic driven search algorithm IDA*. The basic data structure is the predicate `ida_node/2` . The algorithm is implemented by 3 predicates:
