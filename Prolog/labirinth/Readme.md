@@ -83,17 +83,27 @@ The heuristic used here is the manhattan distance that ignores the blue squares.
 Two heuristics are avaliable in case of informed search: Manhattan distances and Euclidean distance.
 
 ### Search Algorithms
+In the search algorithms described here below we define a graph to visit in which every labirinth's room is a node. The root is the Enter room and the Exit is one of the children.
 
 ##### `astar.pl` 
-implements the heuristic driven search algorithm A*. The code is structured in "helper method" (astar_aux) e "wrapper method" (astar), the seconds provides the init value to the first. So `astar_aux` declares:
-  - recursive part explores state space (completeness).
-  - control part checks, considering the initial state, wether the most near final state has been found (correctness and optimality)  the predicates that implements the search; it has 3 parameters, the first is a list of the frontier nodes, the second is a list of already visited ones, while the third is a list of actions that represent the solution.
-  - `generateSons/4`: allows to generate the children of a given node, checking all the allowed actions in that node.
+implements the heuristic driven search algorithm A*. The code is structured in "helper method" (astar_aux) e "wrapper method" (astar), the seconds provides the init value to the first. The expanded node are tracked two sorted lists (open nodes and closed nodes) from standard Prolog library ordset.
 
-- `idastar.pl` implements the heuristic driven search algorithm IDA*. The basic data structure is the predicate `ida_node/2` . The algorithm is implemented by 3 predicates:
-  - `ida/1`: allows to calculate the initial threshold, starts the search and fill the only parameter with a list of moves to reach the solution.
-  - `idastar/5`: the predicates starts the search through the predicate `ida_search/5` and allows to calculate a new threshold in case it returns false.
-  - `ida_search/5`: the predicates that implements the IDA* search.
+So `astar_aux` declares:
+- 1. a recursive part to explore state space (completeness).
+- 2. a control part to check, considering the initial state, wether the most near final state has been found (correctness and optimality).
+In the first part the funtion "findall" is used to find reacheble room for the current state. A predicate "generaStatiFigli" is then called to populate a list of all the children (reacheble rooms) defined as:
+`nodo(F, G, S, Azioni)`:
+  - F the value of the evaluation function (G+H);
+  - G the value of the real distance from the initial node to the current node;
+  - S the informations related to the current state;
+  - Azioni the list of actions to get the path from initial node to current node.
+ 
+ The `generaStatiFigli` rules describe 5 cases:
+  - no more allowed moves;
+  - a node already in the list of opened ones, but with lower F value;
+  - a first time discovered node;
+  - a node already in the list of closed ones, but with lower F value;
+  - a node already in the list of opened or closed nodes, but with an F value equal or major.
 
 ## Statistics
 
