@@ -48,22 +48,30 @@ The mail folder is labirinth it contains:
 
 - 50 X 50
 <p align="center">
+  <kbd>
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/labirinth/rooms/Maze_50x50.png"/>
+  </kbd>
 </p>
 
 - 70 X 70
 <p align="center">
+  <kbd>
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/labirinth/rooms/Maze_70x70.png"/>
+     </kbd>
 </p>
 
 - 100 X 100
 <p align="center">
+  <kbd>
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/labirinth/rooms/Maze_100x100.png"/>
+     </kbd>
 </p>
 
 - 200 X 200
 <p align="center">
+  <kbd>
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/labirinth/rooms/Maze_200x200.png"/>
+     </kbd>
 </p>
 
 This domain represent a labyrinth using the predicate `pos(X, Y)` where `X` and `Y` are the agent position coordinates. Similarly the blue walls are represented by `occupied(pos(X, Y))`. `allowed/2` just checks if the action doesn't lead outside the labyrinth or inside a blue block, while `move/3` generate the new state.
