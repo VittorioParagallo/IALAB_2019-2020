@@ -84,8 +84,6 @@ Two heuristics are avaliable in case of informed search: Manhattan distances and
 
 ### Search Algorithms
 
-- `iterative_deepening.pl` implements an iterative deepening search exploiting the innate Prolog's depth search inside the space of possibile variables unifications. The code is pretty self explanatory.
-
 ##### `astar.pl` 
 implements the heuristic driven search algorithm A*. The code is structured in "helper method" (astar_aux) e "wrapper method" (astar), the seconds provides the init value to the first. So `astar_aux` declares:
   - recursive part explores state space (completeness).
@@ -110,6 +108,6 @@ All the statistics have been reported in the `prolog-statistics.pdf` file. Here 
 
 ## Authors
 
-- **Cesare Iurlaro** - [CesareIurlaro](https://github.com/CesareIurlaro)
-- **Giuseppe Gabbia**  - [beppe95](https://github.com/beppe95)
-- **Lamberto Basti**  - [lamba92](https://github.com/lamba92)
+* **Alberto Guastalla** - [AlebertoGuastalla](https://github.com/AlebertoGuastalla)
+* **Tommaso Toscano**  - [DarkRaider95](https://github.com/DarkRaider95)
+* **Vittorio Paragallo**  - [VittorioParagallo](https://github.com/VittorioParagallo)
