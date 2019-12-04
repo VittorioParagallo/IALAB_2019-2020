@@ -41,27 +41,27 @@ The mail folder is labirinth it contains:
 #### Avaliable Labyrinths
 - 10 X 10
 <p align="center">
-  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/tree/master/Prolog/labirinth/rooms/rooms/Maze_10x10.png"/>
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/labirinth/rooms/Maze_10x10.png"/>
 </p>
 
 - 50 X 50
 <p align="center">
-  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/tree/master/Prolog/labirinth/rooms/Maze_50x50.png"/>
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/labirinth/rooms/Maze_50x50.png"/>
 </p>
 
 - 70 X 70
 <p align="center">
-  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/tree/master/Prolog/labirinth/rooms/Maze_70x70.png"/>
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/labirinth/rooms/Maze_70x70.png"/>
 </p>
 
 - 100 X 100
 <p align="center">
-  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/tree/master/Prolog/labirinth/rooms/Maze_100x100.png"/>
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/labirinth/rooms/Maze_100x100.png"/>
 </p>
 
 - 200 X 200
 <p align="center">
-  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/tree/master/Prolog/labirinth/rooms/Maze_200x200.png"/>
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/labirinth/rooms/Maze_200x200.png"/>
 </p>
 
 This domain represent a labyrinth using the predicate `pos(X, Y)` where `X` and `Y` are the agent position coordinates. Similarly the blue walls are represented by `occupied(pos(X, Y))`. `allowed/2` just checks if the action doesn't lead outside the labyrinth or inside a blue block, while `move/3` generate the new state.
