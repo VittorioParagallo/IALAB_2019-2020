@@ -13,16 +13,21 @@ TO check and analyze sourse code you can use [VSCode](https://code.visualstudio.
 
 ## Description
 
-This implementation allows to find a path to exit from a labirinth.
+This implementation allows to find a path to exit from a labirinth. the code will run on any labirint defined as KB if following the domain specification. The initial starting position inside the labirinth can be defined at runtime. More algorithms have been implemented to get a path with an informed or uninformed search. 
+
+### Project folders
+
+The mail folder is `labirinth` it contains:
+- 
+
 
 ### Domain
 
 - The labirinth is represented by a matrix with n*m and defined by the facts `num_righe(X)` and `num_col(Y)`;
 - All the rooms are declared by the fact `pos(A,B)` where A>0, A<=num_righe(X), B>0, B<=num_col(Y);
-- All the rooms are considered free to route on so not declared free;
-- Thus the occupied cells, represent cells not allowed in any path and thus declares as `occupata(pos(A,B))`
-Each domain is self contained inside its respective folder. The `loader.pl` file inside them allows to load all the necessary predicates to explore the domain. All the domain specific predicates uses standardized names so that all the algorithms don't have to handle the specifications of each one.
-
+- All the rooms are considered free to route on, so these are not declared at all;
+- The occupied cells represent cells not allowed in any path and thus declared as `occupata(pos(A,B))`;
+- The labirinth exit room is defined by the fact `finale(pos(A,B))` there can be more of them and can be even not reacheable because of adiacent `occupied` rooms.
 
 ### Constraints
 - A labirinth has an enter room
