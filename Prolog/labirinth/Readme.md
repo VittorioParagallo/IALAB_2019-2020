@@ -41,7 +41,7 @@ The mail folder is labirinth it contains:
 #### Avaliable Labyrinths
 - 10 X 10
 <p align="center">
-  <img style="border:5px groove gold;" src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/labirinth/rooms/Maze_10x10.png"/>
+  <img border="5" src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/labirinth/rooms/Maze_10x10.png"/>
 </p>
 
 - 50 X 50
