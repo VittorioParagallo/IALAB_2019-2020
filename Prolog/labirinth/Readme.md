@@ -38,7 +38,7 @@ The mail folder is labirinth it contains:
 - `algorithms` folder contains the implementation of A*, iterative deepening and IDA*;
 - `rooms` folder contains more labirinths with different room sizes.
 
-#### Avaliable Labyrinths
+#### Avaliable Labyrinths (red square exit, yellow one enter)
 - 10 X 10
 <p align="center">
   <kbd>
