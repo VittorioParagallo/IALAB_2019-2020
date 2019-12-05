@@ -25,8 +25,14 @@ This implementation allows to find a path to exit from a labirinth. the code wil
 
 
 ### Constraints
-- A labirinth has an enter room
-File structure:
+- A labirinth has an enter room;
+- there are 1 or more exit rooms;
+- if there is a path from the enter and exit room it must be found in finite time;
+- an occupied room can't be in the path;
+- all the rooms in the path must be consequentially adiacenth;
+- the path is described by sorted order of actions to move from one room to the adiacent one till the exit;
+- there can't be twice the same room in the path;
+- if there are more exits, thus more paths, the shortest one has to be the goal.
 
 
 ### Folders description
