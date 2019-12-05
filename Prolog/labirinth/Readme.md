@@ -2,6 +2,11 @@
 
 This project implements a prolog program following the requirements specified for the Laboratory of Artificial Intelligence at the University of Turin (Italy) during accademic year 2018-2019.
 
+<p align="center">
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/12710952_202343880119105_5425026629015054834_o.png"/>
+</p>
+
+
 ## Installing
 
 To run the code you need to download and install SWIProlog and set a runnable path.
