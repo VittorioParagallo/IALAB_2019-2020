@@ -119,7 +119,7 @@ The wrapper rule `iterative_deepening_astar` defines the initial treshold as h(S
 
 (astar_aux) e "wrapper method" (astar), the seconds provides the init value to the first. The
     
-## Statistics
+### Statistics
 
 All the statistics have been reported in the `prolog-statistics.pdf` file. Here you can see two meaningful examples:
 
