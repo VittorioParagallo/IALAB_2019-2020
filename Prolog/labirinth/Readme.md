@@ -122,7 +122,7 @@ All the statistics have been reported in the `prolog_statistics.txt` file and us
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/tblRisultati.png"/>
 </p>
 <p align="center">
-  <img src="https://github.com/lamba92/prolog-project/blob/master/stuff/Lab%205x5.PNG"/>
+  <img src="https://github.com/lamba92/prolog-project/blob/master/stuff/inferences_chart1.png"/>
 </p>
 
 ## Authors
