@@ -6,16 +6,6 @@ This project implements a prolog program following the requirements specified fo
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/12710952_202343880119105_5425026629015054834_o.png"/>
 </p>
 
-
-## Installing
-
-To run the code you need to download and install SWIProlog and set a runnable path.
-TO check and analyze sourse code you can use [VSCode](https://code.visualstudio.com/download) together with the extension [VSC-Prolog](https://marketplace.visualstudio.com/items?itemName=arthurwang.vsc-prolog).
-
-## Running the program
-
-@TODO
-
 ## Description
 
 This implementation allows to find a path to exit from a labirinth. the code will run on any labirint defined as KB if following the domain specification. The initial starting position inside the labirinth can be defined at runtime. More algorithms have been implemented to get a path with an informed or uninformed search. 
