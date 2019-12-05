@@ -116,7 +116,7 @@ The wrapper rule `iterative_deepening_astar` defines the initial treshold as h(S
     
 ### Statistics
 
-All the statistics have been reported in the `prolog_statistics.txt` file and used as source data of the following graphs:
+All the statistics have been reported in the `prolog_statistics.txt` file and used as source data of the following graphs about the quantity of inferences:
 
 <p align="center">
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/tblRisultati.png"/>
