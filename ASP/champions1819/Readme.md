@@ -6,8 +6,7 @@ A calendar is required to plan the UEFA champions league, so through CLINGO the 
 <p align="center">
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/ASP/img/kisspng-201617-uefa-champions-league-premier-league-201-5b08f06ae70224.2252970515273124909462.jpg"/>
 </p>
-- *calendar*: the generation of a timetable for the Computer Science Department courses of the University of Turin.
-- *cargo*: the cargo problem seen in **Artificial Intelligence, a Modern Approach** by Russell and Norvig.
+
 
 ## Calendar
 
@@ -36,6 +35,6 @@ To model the problem we have been inspired by the model written in the **Artific
 
 ## Authors
 
-* **Cesare Iurlaro** - [CesareIurlaro](https://github.com/CesareIurlaro)
-* **Giuseppe Gabbia**  - [beppe95](https://github.com/beppe95)
-* **Lamberto Basti**  - [lamba92](https://github.com/lamba92)
+* **Alberto Guastalla** - [AlebertoGuastalla](https://github.com/AlebertoGuastalla)
+* **Tommaso Toscano**  - [DarkRaider95](https://github.com/DarkRaider95)
+* **Vittorio Paragallo**  - [VittorioParagallo](https://github.com/VittorioParagallo)
