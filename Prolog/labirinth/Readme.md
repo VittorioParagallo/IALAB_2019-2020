@@ -129,6 +129,10 @@ All the statistics have been reported in the `prolog_statistics.txt` file and us
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/chart_labirinthupto100.png"/>
 </p>
 
+<p align="center">
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/chart_labirinthupto100v2.png"/>
+</p>
+
 ## Authors
 
 * **Alberto Guastalla** - [AlebertoGuastalla](https://github.com/AlebertoGuastalla)
