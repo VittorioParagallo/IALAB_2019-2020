@@ -1,6 +1,4 @@
 girone(a;b;c;d;e;f;g;h).
-nazione(belgio; francia; germania; grecia; inghilterra; italia; olanda; portogallo; repubblica_ceca; russia; serbia; spagna; svizzera; turchia; ucraina).
-citta(bruges; monaco; parigi; lione; dortmund; gelsenkirchen; monaco_di_baviera; hoffenheim_sinsheim; atene; londra; liverpool; manchester; milano; napoli; roma; torino; eindhoven; amsterdam; porto; lisbona; plzen; mosca; belgrado; madrid; barcellona; valencia; berna; istanbul; donetsk).
 squadra(club_brugge; monaco; paris_saint_germain; olympic_lione; borussia_dortmund; schalke_04; bayern_monaco; hoffenheim; aek; tottenham_hotspur; liverpool; manchester_city; manchester_united; inter; napoli; roma; juventus; psv_eindhoven; ajax; porto; benfica; viktoria_plzen; lokomotiv_mosca; cska_mosca; stella_rossa; atletico_madrid; barcellona; real_madrid; valencia; young_boys; galatasaray; shakhtar_donetsk).
 
 haNazione(club_brugge, belgio).
