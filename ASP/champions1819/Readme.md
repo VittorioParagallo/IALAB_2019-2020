@@ -24,7 +24,7 @@ The final calendar follows the constraints here below:
 - in every round, every team plays against the other 3 only once, both for first and second half season;
 - matches are grouped in 3 days per half season, all the 32 teams play each day;
 - two teams from the same town can't both play home match during the same day;
-- the series of matches must alternate away match and home match;
+- a team can't play more than 2 consecutive matches home or more than 2 away.
 
 The data provided already meet the constraints about at least 2 teams from the same town and at least 4 nations with 4 teams each.
 
