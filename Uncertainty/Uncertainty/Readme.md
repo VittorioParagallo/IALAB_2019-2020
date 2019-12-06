@@ -51,6 +51,9 @@ L’aumentare del numero di variabili di evidenza, riduce il tempo di inferenza,
 
 ## Reti utilizzate
 ### Reti piccole < 20 nodi
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/earthquake.png"/><br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/asia.png"/><br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/sachs.png"/><br>
 * Earthquake
 * Asia
 * Sachs
@@ -59,12 +62,16 @@ Earthquake e Asia funzionano perfettamente con entrambe le inferenze e vengono c
 Sachs ha gli assegnamenti che corrispondono, ma le probabilità diverse.
 
 ### Reti medie 20-50 nodi
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/insurance.png"/><br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/barley.png"/><br>
 * Insurance
 * Barley
 
 Sia insurance che barley, danno risultati diversi rispetto a samiam
 
 ### Reti grandi 50-100 nodi
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/hailfinder.png"/><br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/hepar2.png"/><br>
 * Hailfinder
 * Hepar2
 
@@ -72,6 +79,7 @@ Per la rete hepar2 va sia MPE che MAP variazione di qualche cifra decimale rispe
 invece per la rete hailfinder va solo MAP e va quando si scelgono variabili vicino alla radice, diversi assegnamenti e cifre decimali
 
 ### Reti molto grandi 100-1000 nodi
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/andes.png"/><br>
 * Andes
 
 Va solo MAP e va quando si scelgono variabili vicino alla radice, assegnamenti e cifre decimali identici.
