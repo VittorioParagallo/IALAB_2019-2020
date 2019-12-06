@@ -8,7 +8,7 @@ This project implements a prolog program following the requirements specified fo
 
 ## Description
 
-This implementation allows to find a path to exit from a labirinth. the code will run on any labirint defined as KB if following the domain specification. The initial starting position inside the labirinth can be defined at runtime. More algorithms have been implemented to get a path with an informed or uninformed search. 
+This implementation allows to find a path to exit from a labirinth. the code will run on any labirint defined as KB if following the domain specification. The exit positions of the labirinth can be defined at runtime. More algorithms have been implemented to get a path with an informed or uninformed search. 
 
 ### Domain
 
