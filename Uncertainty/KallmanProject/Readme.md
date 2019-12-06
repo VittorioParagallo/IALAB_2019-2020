@@ -31,6 +31,9 @@ La formula finale che aggiorna lo stato e la covarianza, tenendo conto sia dello
 dove K è il Kalman Gain che si calcola così:<br>
 <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/formula3.png"/><br>
 
+L'immagine seguente riassume tutti i passaggi della simulazione:<br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/kalflow.png"/><br>
+
 ## Esecuzione
 Per utilizzare il programma bisogna lanciare il comando java -jar .\KallmanProject.jar.<br>
 È possibile impostare dei parametri per l’esecuzione, si possono inserire al massimo 3 parametri i primi due impostano il rumore per l’esperimento, mentre il terzo modifica la distribuzione iniziale.<br>
