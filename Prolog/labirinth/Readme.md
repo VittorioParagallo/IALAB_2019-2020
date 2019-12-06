@@ -8,11 +8,11 @@ This project implements a prolog program following the requirements specified fo
 
 ## Description
 
-This implementation allows to find a path to exit from a labirinth. the code will run on any labirint defined as KB if following the domain specification. The exit positions of the labirinth can be defined at runtime. More algorithms have been implemented to get a path with an informed or uninformed search. 
+This implementation allows to find a path to exit from a labirinth. the code will run on any labirinth defined as KB if following the domain specification. The exit positions of the labirinth can be defined at runtime. More algorithms have been implemented to get a path with an informed or uninformed search. 
 
 ### Domain
 
-- The labirinth is represented by a matrix with n*m and defined by the facts `num_righe(X)` and `num_col(Y)`;
+- The labirinth is represented by a matrix with n*m (n=`num_righe(X)` and m=`num_col(Y)`);
 - All the rooms are declared by the fact `pos(A,B)` where A>0, A<=num_righe(X), B>0, B<=num_col(Y);
 - All the rooms are considered free to route on, so these are not declared at all;
 - The occupied cells represent cells not allowed in any path and thus declared as `occupata(pos(A,B))`;
@@ -25,7 +25,7 @@ This implementation allows to find a path to exit from a labirinth. the code wil
 - if there is a path from the enter and exit room it must be found in finite time;
 - an occupied room can't be in the path;
 - all the rooms in the path must be consequentially adiacenth;
-- the path is described by sorted order of actions to move from one room to the adiacent one till the exit;
+- the path is described by sorted list of actions to move from one room to the adiacent one till the exit;
 - there can't be twice the same room in the path;
 - if there are more exits, thus more paths, the shortest one has to be the goal.
 
