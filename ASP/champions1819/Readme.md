@@ -28,6 +28,13 @@ The final calendar follows the constraints here below:
 
 The data provided already meet the constraints about at least 2 teams from the same town and at least 4 nations with 4 teams each.
 
+## Calendar
+The following calendar is the clingo answer set resulting from file `finale.lp`. 
+<p align="center">
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/ASP/img/calendario finale.png"/>
+</p>
+
+
 ## Authors
 
 * **Alberto Guastalla** - [AlebertoGuastalla](https://github.com/AlebertoGuastalla)
