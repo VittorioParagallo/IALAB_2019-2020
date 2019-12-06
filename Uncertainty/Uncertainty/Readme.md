@@ -34,7 +34,7 @@ Il test è stato effettuato con:
 * 10 variabili di evidenza prese casualmente.
 * variabili di MAP prese casualmente, aumentate di numero fino ad arrivare al numero massimo ottenendo quindi un’inferenza MPE.
 
-Gli assegnamenti delle variabili MAP per ogni test sono stati identici e la probabilità in alcuni casi era uguale in altri è variata nell’ordine di 10-20, siccome questa variazione è molto piccola, probabilmente è dovuta a un’imprecisione delle variabili double, che hanno una precisione di 15 cifre decimali.
+Gli assegnamenti delle variabili MAP per ogni test sono stati identici e la probabilità in alcuni casi era uguale in altri è variata nell’ordine di 10^-20, siccome questa variazione è molto piccola, probabilmente è dovuta a un’imprecisione delle variabili double, che hanno una precisione di 15 cifre decimali.
 Nella maggior parte dei casi l’ottimizzazione ha ridotto il tempo di inferenza, in alcuni l’ha anche dimezzato.
 
 In sostanza l’ottimizzazione sembra essere valida, ma non ne siamo certi dato che non si è potuto confrontare il risultato con SamIam.
