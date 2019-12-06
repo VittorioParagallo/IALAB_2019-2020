@@ -10,13 +10,23 @@ A calendar is required to plan the UEFA champions league, so through CLINGO the 
 
 ## Data and constraint
 
-A calendar needs to be issued to plan the uefa champions league matches. So for the year 2018-1029 there will be 32 teams coming from 15 nations: Belgio, Francia, Germania, Grecia, Inghilterra, Italia, Olanda, Portogallo, Repubblica Ceca, Russia, Serbia, Spagna, Svizzera, Turchia, Ucraina.
+The system issues a calendar to plan the uefa champions league matches for the year 2018-1029 taking into account 32 teams coming from 15 nations: Belgio, Francia, Germania, Grecia, Inghilterra, Italia, Olanda, Portogallo, Repubblica Ceca, Russia, Serbia, Spagna, Svizzera, Turchia, Ucraina.
 
 <p align="center">
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/ASP/img/championsteamlist.png"/>
 </p>
 
-The knowledge base has been populated with many predicates, some hardcoded with the available classrooms, courses and professors. Given those, in each model the predicate `slot/8` is generated, containing all the information of the time table. Then to check if the timetable is a valid one or not, few other predicates are generated and checks are made to test if the model is a valid one or not.
+Those specifications have been splitted in two predicates `haNazione(X, Y)` and `haCitta(X, Z).` where X is the team Y the corresponding nation and Z the corresponding town.
+
+Those 32 teams have been then combined, according to the contraints in 8 rounds on two halves season: `girone(a;b;c;d;e;f;g;h).` with 4 teams each.
+The final calendar follows the constraints here below:
+- max 1 team per nation in the same round;
+- in every round, every team plays against the other 3 only once, both for first and second half season;
+- matches are grouped in 3 days per half season, all the 32 teams play each day;
+- two teams from the same town can't both play home match during the same day;
+- the series of matches must alternate away match and home match;
+
+The data provided already meet the constraints about at least 2 teams from the same town and at least 4 nations with 4 teams each.
 
 The folder `calendar\ui` contains a Kotlin JVM project that starting from a text file containing the `slot/8` predicates converts them in a `.csv` file allowing to import it inside Excel:
 
