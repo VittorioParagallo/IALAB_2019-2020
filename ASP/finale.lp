@@ -107,4 +107,10 @@ haCitta(shakhtar_donetsk, donetsk).
 % genera le partite di ritorno
 partita(S1, S, G, N, rit) :- partita(S, S1, G, N, and).
 
+%Time: 39.125s (Solving: 0.10s 1st Model: 0.10s Unsat: 0.00s) Senza vincoli
+%Time: 39.080s (Solving: 0.16s 1st Model: 0.15s Unsat: 0.00s)
+%assegnaSquadra(real_madrid, a).
+%assegnaSquadra(monaco, b).
+%assegnaSquadra(juventus, c).
+
 #show partita/5.
