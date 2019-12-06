@@ -114,9 +114,12 @@ The wrapper rule `iterative_deepening_astar` defines the initial treshold as h(S
 
 (astar_aux) e "wrapper method" (astar), the seconds provides the init value to the first. The
     
-### Statistics
+## Statistics
 
 All the statistics have been reported in the `prolog_statistics.txt` file and used as source data of the following graphs about the quantity of inferences:
+
+### Inferences
+Here below are summarized by chart the performances by considering the total quantity of inferences.
 
 <p align="center">
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/tblRisultati.png"/>
@@ -132,6 +135,24 @@ All the statistics have been reported in the `prolog_statistics.txt` file and us
 <p align="center">
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/chart_labirinthupto100v2.png"/>
 </p>
+
+### Execution Time
+Here below are summarized by chart the performances by considering the total execution time.
+<p align="center">
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/tblRisultati_ss.png"/>
+</p>
+<p align="center">
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/inferences_chart1_ss.png"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/chart_labirinthupto100_ss.png"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/chart_labirinthupto100v2_ss.png"/>
+</p>
+
 
 ### Conclusions
 Execution times and quanties of inferences follow the algorithm temporal complexity. Both #inferences and #time are strongly influences by the kind of heuristic choice.Completness and optimality conditions for A* and IDA* are satisfied by choosing admissible heuristics ( h(n)<= c(n) ).
