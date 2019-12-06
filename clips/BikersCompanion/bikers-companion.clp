@@ -649,7 +649,7 @@
    (tourism-resort
      (name Cagliari)
      (region Sardegna)
-     (type culturale enogastronomico)
+     (type balenare culturale enogastronomico)
      (score 2 5))
    (tourism-resort
      (name Nuoro)
@@ -674,7 +674,7 @@
    (tourism-resort
      (name Savona)
      (region Liguria)
-     (type balneare naturalistico sportivo)
+     (type naturalistico sportivo)
      (score 3 4 3)))
 
 (deffacts HOTELS::the-hotels-list
