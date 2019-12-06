@@ -1,6 +1,6 @@
 # CLINGO PROJECT
 
-This project implements the ASP project champions 2018-2019 as specified for the Laboratory of Artificial Intelligence at the University of Turin (Italy) during accademic year 2018-2019.
+This project implements the ASP project champions 2018-2019 as specified for the Laboratory of Artificial Intelligence at the University of Turin (Italy) during accademic year 2019-2020.
 A calendar is required to plan the UEFA champions league, so through CLINGO the needed answer set is computed according to severeal constraints.
 
 <p align="center">
