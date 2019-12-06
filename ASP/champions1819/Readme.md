@@ -28,7 +28,7 @@ The final calendar follows the constraints here below:
 
 The data provided already meet the constraints about at least 2 teams from the same town and at least 4 nations with 4 teams each.
 
-We tried to constraint some team on a specific round, in order to obtain an improvement in the time of execution, but the time didn't change much.
+We tried to constrain some team on a specific round, in order to obtain an improvement in the time of execution, but the time didn't change much.
 To find an answer set our project takes 39 seconds.
 ## Calendar
 The following calendar is the clingo answer set resulting from file `finale.lp`. 
