@@ -35,7 +35,7 @@ This implementation allows to find a path to exit from a labirinth. the code wil
 The mail folder is labirinth it contains: 
 - `azioni.pl` contains the set of actions allowed in the labirinth domain;
 - `labgen_color.py` a python script to generate labirinths;
-- `output.pl` contains the labirinth to run the test on (can be replaced with any labirinth in folder labirinth);
+- `output.pl` contains the labirinth to run the test on (can be replaced with any labirinth in folder rooms);
 - `algorithms` folder contains the implementation of A*, iterative deepening and IDA*;
 - `rooms` folder contains more labirinths with different room sizes.
 
@@ -76,12 +76,12 @@ The mail folder is labirinth it contains:
 </p>
 
 ### Search Algorithms
-In the search algorithms described here below we define a graph to explore a labirinth in which every labirinth's room correspond to a node. The root is the Enter room and the Exit is one of the children. The informed algorithms are supplied with two possible heuristics: the Manhattan distances and Euclidean distances.
+In the search algorithms described here below we define a graph to explore a labirinth in which every labirinth's room correspond to a node. The root is the Enter room and the Exit is one of the leaves. The informed algorithms are supplied with two possible heuristics: the Manhattan distances and Euclidean distances.
 
 ##### `ID.pl` 
-Describes the rules to apply the iterative deepening by a deep first search (DFS) with increasing depth-limits. So the depth-limit starts from zero and the wrapper rule `iterative_deepening` defines the maximum number of iterations as the quantity of free rooms in the labirinth domain.
+Describes the rules to apply the iterative deepening by a deep first search (DFS) with increasing depth-limits. So the depth-limit starts from zero and the wrapper rule `iterative_deepening` defines the maximum number of iterations as the quantity of free rooms in the labirinth.
  Then `iterative_deepening_aux` describes:
-  - 1 the recursive exploration of the space state. For every time a solution is not found at the end the depth-limit is incrised by 1 and the explorations starts again (completness);
+  - 1 the recursive exploration of the space state. For every time a solution is not found at the end the depth-limit is increased by 1 and the explorations starts again (completeness);
   - 2 a check case to verify a goal match (correctness and optimality).
 
 ##### `Astar.pl` 
