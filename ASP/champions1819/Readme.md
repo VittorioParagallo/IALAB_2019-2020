@@ -8,7 +8,13 @@ A calendar is required to plan the UEFA champions league, so through CLINGO the 
 </p>
 
 
-## Calendar
+## Data and constraint
+
+A calendar needs to be issued to plan the uefa champions league matches. So for the year 2018-1029 there will be 32 teams coming from 15 nations: Belgio, Francia, Germania, Grecia, Inghilterra, Italia, Olanda, Portogallo, Repubblica Ceca, Russia, Serbia, Spagna, Svizzera, Turchia, Ucraina.
+
+<p align="center">
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/ASP/img/championsteamlist.png"/>
+</p>
 
 The knowledge base has been populated with many predicates, some hardcoded with the available classrooms, courses and professors. Given those, in each model the predicate `slot/8` is generated, containing all the information of the time table. Then to check if the timetable is a valid one or not, few other predicates are generated and checks are made to test if the model is a valid one or not.
 
