@@ -141,9 +141,6 @@ Here below are summarized by chart the performances by considering the execution
 <p align="center">
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/tblRisultati_ss.png"/>
 </p>
-<p align="center">
-  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/inferences_chart1_ss.png"/>
-</p>
 
 <p align="center">
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/chart_labirinthupto100_ss.png"/>
