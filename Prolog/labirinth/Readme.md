@@ -116,6 +116,10 @@ The wrapper rule `iterative_deepening_astar` defines the initial treshold as h(S
 ## Statistics
 
 All the statistics have been reported in the `prolog_statistics.txt` file and used as source data of the following graphs about the quantity of inferences:
+<p align="center">
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/tblInfAndTime.png"/>
+</p>
+This tables shows the performances in terms of quantity of inferences and execution time for the 3 algorithm implementations and the two different heuristics (not for iterative deepening because it is uninformed).
 
 ### Inferences
 Here below are summarized by chart the performances by considering the total quantity of inferences.
