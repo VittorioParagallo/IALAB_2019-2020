@@ -119,10 +119,10 @@ All the statistics have been reported in the `prolog_statistics.txt` file and us
 <p align="center">
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/tblInfAndTime.png"/>
 </p>
-This tables shows the performances in terms of quantity of inferences and execution time for the 3 algorithm implementations and the two different heuristics (not for iterative deepening because it is uninformed).
+This tables shows the performances in terms of quantity of inferences and execution time for the 3 algorithm implementations and the two different heuristics (not for iterative deepening because it is uninformed). The inferences for simplicity are divided by 1000 and the time is considered in seconds.
 
 ### Inferences
-Here below are summarized by chart the performances by considering the total quantity of inferences.
+Here below are summarized by chart the performances by considering only the total quantity of inferences (x1000).
 
 <p align="center">
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/tblRisultati.png"/>
