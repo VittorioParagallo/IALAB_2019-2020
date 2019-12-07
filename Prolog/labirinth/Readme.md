@@ -35,9 +35,8 @@ This implementation allows to find a path to exit from a labirinth. the code wil
 The mail folder is labirinth it contains: 
 - `azioni.pl` contains the set of actions allowed in the labirinth domain;
 - `labgen_color.py` a python script to generate labirinths;
-- `output.pl` contains the labirinth to run the test on (can be replaced with any labirinth in folder rooms);
 - `algorithms` folder contains the implementation of A*, iterative deepening and IDA*;
-- `rooms` folder contains more labirinths with different room sizes.
+- `rooms` folder contains the labirinths with different room sizes.
 
 #### Avaliable Labyrinths (red square exit, yellow one enter)
 - 10 X 10
