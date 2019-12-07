@@ -151,7 +151,7 @@ Here below are summarized by chart the performances by considering the execution
 </p>
 
 
-### Conclusions
+## Conclusions
 Execution times and quanties of inferences follow the algorithm temporal complexity. Both #inferences and #time are strongly influences by the kind of heuristic choice.Completness and optimality conditions for A* and IDA* are satisfied by choosing admissible heuristics ( h(n)<= c(n) ).
 Both Manhattan(1) and Euclidean(2) heuristics have been implemented. Iterative deepening is itself already complete and optimal but with exponential complexty.
 I terms of spacial complexity, A* scores worste by keeping a node frontier wider then the others. Thus the algorithm working on a deep search first explore the state space by keeping in memory only the visited path node. 
