@@ -1,6 +1,6 @@
 # CLINGO PROJECT
 
-This project implements the ASP project champions 2018-2019 as specified for the Laboratory of Artificial Intelligence at the University of Turin (Italy) during accademic year 2018-2019.
+This project implements the ASP project champions 2018-2019 as specified for the Laboratory of Artificial Intelligence at the University of Turin (Italy) during accademic year 2019-2020.
 A calendar is required to plan the UEFA champions league, so through CLINGO the needed answer set is computed according to severeal constraints.
 
 <p align="center">
@@ -24,9 +24,12 @@ The final calendar follows the constraints here below:
 - in every round, every team plays against the other 3 only once, both for first and second half season;
 - matches are grouped in 3 days per half season, all the 32 teams play each day;
 - two teams from the same town can't both play home match during the same day;
-- the series of matches must alternate away match and home match;
+- a team can't play more than 2 consecutive matches home or more than 2 away.
 
 The data provided already meet the constraints about at least 2 teams from the same town and at least 4 nations with 4 teams each.
+
+We tried to constrain some teams on a specific round, in order to obtain an improvement over the execution time, but the perfomances didn't show improvements.
+The overall time to find an answer set is 39 seconds.
 
 ## Calendar
 The following calendar is the clingo answer set resulting from file `finale.lp`. 

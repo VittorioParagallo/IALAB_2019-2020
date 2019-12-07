@@ -8,11 +8,11 @@ This project implements a prolog program following the requirements specified fo
 
 ## Description
 
-This implementation allows to find a path to exit from a labirinth. the code will run on any labirint defined as KB if following the domain specification. The exit positions of the labirinth can be defined at runtime. More algorithms have been implemented to get a path with an informed or uninformed search. 
+This implementation allows to find a path to exit from a labirinth. the code will run on any labirinth defined as KB if following the domain specification. The exit positions of the labirinth can be defined at runtime. More algorithms have been implemented to get a path with an informed or uninformed search. 
 
 ### Domain
 
-- The labirinth is represented by a matrix with n*m and defined by the facts `num_righe(X)` and `num_col(Y)`;
+- The labirinth is represented by a matrix with n*m (n=`num_righe(X)` and m=`num_col(Y)`);
 - All the rooms are declared by the fact `pos(A,B)` where A>0, A<=num_righe(X), B>0, B<=num_col(Y);
 - All the rooms are considered free to route on, so these are not declared at all;
 - The occupied cells represent cells not allowed in any path and thus declared as `occupata(pos(A,B))`;
@@ -25,7 +25,7 @@ This implementation allows to find a path to exit from a labirinth. the code wil
 - if there is a path from the enter and exit room it must be found in finite time;
 - an occupied room can't be in the path;
 - all the rooms in the path must be consequentially adiacenth;
-- the path is described by sorted order of actions to move from one room to the adiacent one till the exit;
+- the path is described by sorted list of actions to move from one room to the adiacent one till the exit;
 - there can't be twice the same room in the path;
 - if there are more exits, thus more paths, the shortest one has to be the goal.
 
@@ -35,9 +35,8 @@ This implementation allows to find a path to exit from a labirinth. the code wil
 The mail folder is labirinth it contains: 
 - `azioni.pl` contains the set of actions allowed in the labirinth domain;
 - `labgen_color.py` a python script to generate labirinths;
-- `output.pl` contains the labirinth to run the test on (can be replaced with any labirinth in folder labirinth);
 - `algorithms` folder contains the implementation of A*, iterative deepening and IDA*;
-- `rooms` folder contains more labirinths with different room sizes.
+- `rooms` folder contains the labirinths with different room sizes.
 
 #### Avaliable Labyrinths (red square exit, yellow one enter)
 - 10 X 10
@@ -76,12 +75,12 @@ The mail folder is labirinth it contains:
 </p>
 
 ### Search Algorithms
-In the search algorithms described here below we define a graph to explore a labirinth in which every labirinth's room correspond to a node. The root is the Enter room and the Exit is one of the children. The informed algorithms are supplied with two possible heuristics: the Manhattan distances and Euclidean distances.
+In the search algorithms described here below we define a graph to explore a labirinth in which every labirinth's room correspond to a node. The root is the Enter room and the Exit is one of the leaves. The informed algorithms are supplied with two possible heuristics: the Manhattan distances and Euclidean distances.
 
 ##### `ID.pl` 
-Describes the rules to apply the iterative deepening by a deep first search (DFS) with increasing depth-limits. So the depth-limit starts from zero and the wrapper rule `iterative_deepening` defines the maximum number of iterations as the quantity of free rooms in the labirinth domain.
+Describes the rules to apply the iterative deepening by a deep first search (DFS) with increasing depth-limits. So the depth-limit starts from zero and the wrapper rule `iterative_deepening` defines the maximum number of iterations as the quantity of free rooms in the labirinth.
  Then `iterative_deepening_aux` describes:
-  - 1 the recursive exploration of the space state. For every time a solution is not found at the end the depth-limit is incrised by 1 and the explorations starts again (completness);
+  - 1 the recursive exploration of the space state. For every time a solution is not found at the end the depth-limit is increased by 1 and the explorations starts again (completeness);
   - 2 a check case to verify a goal match (correctness and optimality).
 
 ##### `Astar.pl` 
@@ -114,9 +113,12 @@ The wrapper rule `iterative_deepening_astar` defines the initial treshold as h(S
 
 (astar_aux) e "wrapper method" (astar), the seconds provides the init value to the first. The
     
-### Statistics
+## Statistics
 
 All the statistics have been reported in the `prolog_statistics.txt` file and used as source data of the following graphs about the quantity of inferences:
+
+### Inferences
+Here below are summarized by chart the performances by considering the total quantity of inferences.
 
 <p align="center">
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/tblRisultati.png"/>
@@ -132,6 +134,24 @@ All the statistics have been reported in the `prolog_statistics.txt` file and us
 <p align="center">
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/chart_labirinthupto100v2.png"/>
 </p>
+
+### Execution Time
+Here below are summarized by chart the performances by considering the total execution time.
+<p align="center">
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/tblRisultati_ss.png"/>
+</p>
+<p align="center">
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/inferences_chart1_ss.png"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/chart_labirinthupto100_ss.png"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/chart_labirinthupto100v2_ss.png"/>
+</p>
+
 
 ### Conclusions
 Execution times and quanties of inferences follow the algorithm temporal complexity. Both #inferences and #time are strongly influences by the kind of heuristic choice.Completness and optimality conditions for A* and IDA* are satisfied by choosing admissible heuristics ( h(n)<= c(n) ).
