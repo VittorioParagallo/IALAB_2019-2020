@@ -72,3 +72,68 @@ labirinto 200x200 astar heuristic manhattan
 
 labirinto 200x200 astar heuristic euclidean
 125,001,971 inferences, 28.906 CPU in 31.366 seconds (92% CPU, 4324393 Lips)
+
+###########################################################################################################
+
+--------------------------------ID-------------------------------------------------
+labirinto 50x50 ID
+2,880,300 inferences, 0.266 CPU in 0.270 seconds (98% CPU, 10843482 Lips)
+
+labirinto 70x70 ID
+174,432,059 inferences, 15.297 CPU in 15.321 seconds (100% CPU, 11403117 Lips)
+
+labirinto 100x100 ID
+100,152,267 inferences, 10.156 CPU in 10.225 seconds (99% CPU, 9861146 Lips)
+
+labirinto 200x200 ID
+4,599,237,746 inferences, 420.203 CPU in 420.623 seconds (100% CPU, 10945273 Lips)
+
+------------------------------IDASTAR----------------------------------------------
+labirinto 50x50 idastar heuristic manhattan
+468,745 inferences, 0.047 CPU in 0.049 seconds (96% CPU, 9999893 Lips)
+
+labirinto 50x50 idastar heuristic euclidean
+11,115,315 inferences, 1.203 CPU in 1.213 seconds (99% CPU, 9238703 Lips)
+
+labirinto 70x70 idastar heuristic manhattan
+67,909,100 inferences, 6.516 CPU in 6.534 seconds (100% CPU, 10422500 Lips)
+
+labirinto 70x70 idastar heuristic euclidean
+1,750,699,965 inferences, 178.516 CPU in 179.072 seconds (100% CPU, 9806984 Lips)
+
+labirinto 100x100 idastar heuristic manhattan
+44,403,858 inferences, 4.422 CPU in 4.430 seconds (100% CPU, 10041862 Lips)
+
+labirinto 100x100 idastar heuristic euclidean
+329,779,624 inferences, 36.594 CPU in 36.686 seconds (100% CPU, 9011911 Lips)
+
+labirinto 200x200 idastar heuristic manhattan
+1,912,638,254 inferences, 183.563 CPU in 183.708 seconds (100% CPU, 10419548 Lips)
+
+labirinto 200x200 idastar heuristic euclidean
+Non termina
+
+-------------------------------ASTAR-----------------------------------------------
+labirinto 50x50 astar heuristic manhattan
+494,825 inferences, 0.031 CPU in 0.081 seconds (39% CPU, 15834400 Lips)
+
+labirinto 50x50 astar heuristic euclidean
+515,156 inferences, 0.047 CPU in 0.074 seconds (63% CPU, 10989995 Lips)
+
+labirinto 70x70 astar heuristic manhattan
+6,691,607 inferences, 0.719 CPU in 0.768 seconds (94% CPU, 9310062 Lips)
+
+labirinto 70x70 astar heuristic euclidean
+7,163,345 inferences, 0.828 CPU in 0.868 seconds (95% CPU, 8650077 Lips)
+
+labirinto 100x100 astar heuristic manhattan
+7,931,045 inferences, 0.938 CPU in 0.950 seconds (99% CPU, 8459781 Lips)
+
+labirinto 100x100 astar heuristic euclidean
+8,055,761 inferences, 0.906 CPU in 0.948 seconds (96% CPU, 8889116 Lips)
+
+labirinto 200x200 astar heuristic manhattan
+120,303,229 inferences, 14.875 CPU in 15.331 seconds (97% CPU, 8087612 Lips)
+
+labirinto 200x200 astar heuristic euclidean
+125,001,972 inferences, 15.922 CPU in 16.542 seconds (96% CPU, 7850958 Lips)
