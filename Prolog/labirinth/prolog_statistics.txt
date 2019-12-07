@@ -34,7 +34,7 @@ labirinto 200x200 idastar heuristic manhattan
 1,912,638,254 inferences, 183.563 CPU in 183.708 seconds (100% CPU, 10419548 Lips)
 
 labirinto 200x200 idastar heuristic euclidean
-Non termina
+20,818,252,047 inferences, 2173.156 CPU in 2225.533 seconds (98% CPU, 9579731 Lips)
 
 -------------------------------ASTAR-----------------------------------------------
 labirinto 50x50 astar heuristic manhattan
