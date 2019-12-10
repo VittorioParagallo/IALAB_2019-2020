@@ -116,15 +116,16 @@ The wrapper rule `iterative_deepening_astar` defines the initial treshold as h(S
 ## Statistics
 
 All the statistics have been reported in the `prolog_statistics.txt` file and used as source data of the following graphs about the quantity of inferences:
+<p align="center">
+  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/tblInfAndTime.png"/>
+</p>
+This tables shows the performances in terms of quantity of inferences and execution time for the 3 algorithm implementations and the two different heuristics (not for iterative deepening because it is uninformed). The inferences for simplicity are divided by 1000 and the time is considered in seconds. In the following sections only labirinth up to 100x100 are considered in charts because the delta in scores betweet the 200x200 and all the others is so big that a graphic comparison wouldn't be meaningful.
 
 ### Inferences
-Here below are summarized by chart the performances by considering the total quantity of inferences.
+Here below are summarized by chart the performances by considering only the total quantity of inferences (x1000). All the red font values have not been plotted in charts due to the high delta over the average not allowing a meaningful graphical comparison. The Iterative deepening cells even if divided between the two heustics show the same value because are not dependent by any heuristics but a comparison with the informed algorithms is neeeded as well.
 
 <p align="center">
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/tblRisultati.png"/>
-</p>
-<p align="center">
-  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/inferences_chart1.png"/>
 </p>
 
 <p align="center">
@@ -136,12 +137,9 @@ Here below are summarized by chart the performances by considering the total qua
 </p>
 
 ### Execution Time
-Here below are summarized by chart the performances by considering the total execution time.
+Here below are summarized by chart the performances by considering the execution times in seconds. All the red font values have not been plotted in charts due to the high delta over the average not allowing a meaningful graphical comparison. The Iterative deepening cells even if divided between the two heustics show the same value because are not dependent by any heuristics but a comparison with the informed algorithms is neeeded as well.
 <p align="center">
   <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/tblRisultati_ss.png"/>
-</p>
-<p align="center">
-  <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Prolog/img/inferences_chart1_ss.png"/>
 </p>
 
 <p align="center">
@@ -153,11 +151,10 @@ Here below are summarized by chart the performances by considering the total exe
 </p>
 
 
-### Conclusions
+## Conclusions
 Execution times and quanties of inferences follow the algorithm temporal complexity. Both #inferences and #time are strongly influences by the kind of heuristic choice.Completness and optimality conditions for A* and IDA* are satisfied by choosing admissible heuristics ( h(n)<= c(n) ).
 Both Manhattan(1) and Euclidean(2) heuristics have been implemented. Iterative deepening is itself already complete and optimal but with exponential complexty.
 I terms of spacial complexity, A* scores worste by keeping a node frontier wider then the others. Thus the algorithm working on a deep search first explore the state space by keeping in memory only the visited path node. 
-
 
 ## Authors
 
