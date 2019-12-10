@@ -29,6 +29,7 @@
     (bind ?answers (insert$ ?answers ?i ?answer)))
   return ?answers)
 
+;
 (deffunction MAIN::get-variables-name-with-value (?variables ?value)
   (bind ?v (create$))
   (bind ?i 1)
@@ -37,6 +38,7 @@
     (bind ?i (+ ?i 2)))
   return ?v)
 
+;funzione che calcola media
 (deffunction MAIN::average (?values)
   (bind ?sum 0)
   (loop-for-count (?i 1 (length$ ?values)) do
@@ -44,6 +46,7 @@
   (bind ?avg (/ ?sum (length$ ?values)))
   return ?avg)
 
+;funzione che per ordinare i risultati per certezza e per prezzo
 (deffunction MAIN::rating-sort (?f1 ?f2)
    (if (< (fact-slot-value ?f1 alt-certainty) (fact-slot-value ?f2 alt-certainty)) then (return TRUE)
    else (if (> (fact-slot-value ?f1 alt-certainty) (fact-slot-value ?f2 alt-certainty)) then (return FALSE)
@@ -87,12 +90,14 @@
   (slot price-per-night (type FLOAT) (default ?DERIVE))
   (slot free-percent (type INTEGER) (default ?NONE) (range 0 100)))
 
+;tipo di turismo
 (deftemplate MAIN::tourism-resort
   (slot name (type SYMBOL))
   (slot region (type SYMBOL))
   (multislot type (type SYMBOL))
   (multislot score (type INTEGER) (range 0 5)))
 
+;meta regole if then
 (deftemplate MAIN::rule
   (slot certainty (default 100.0))
   (multislot if)
@@ -141,6 +146,7 @@
   =>
   (retract ?rem2))
 
+;; RULES COMBINE CERTAINTIES ;;
 (defrule MAIN::combine-hotels-certainties-positive-signs
   (declare (salience 50)
            (auto-focus TRUE))
@@ -207,6 +213,7 @@
   (retract ?rem1)
   (bind ?mincf (min (abs ?per1) (abs ?per2)))
   (modify ?rem2 (certainty (/ (+ ?per1 ?per2) (- 1 ?mincf)))))
+;; RULES COMBINE CERTAINTIES END ;;
 
 (defrule MAIN::filter-alternatives-about-zero-times-values
   (declare (auto-focus TRUE))
@@ -252,7 +259,7 @@
                          (certainty ?c)))
       (assert (attribute (name region)
                          (value ?region)
-                         (certainty ?c))))
+                         (certainty ?c)))))
     (assert (attribute (name time)
                        (value (integer (string-to-field (nth$ 2 ?value))))
                        (certainty ?c)))
@@ -261,7 +268,7 @@
                        (certainty ?c)))
     (assert (attribute (name people)
                        (value (integer (string-to-field (nth$ 4 ?value))))
-                       (certainty ?c))))
+                       (certainty ?c)))
   (retract ?f))
 
 (defrule FORMAT-ATTRIBUTES::format-region
@@ -514,6 +521,7 @@
 (defmodule REASONING-RULES (import RULES deftemplate rule)
                            (import MAIN deftemplate attribute))
 
+;;genera regole per le città scelte dall'utente
 (defrule REASONING-RULES::compile-citta'
   (attribute (name city)
              (value ?v))
@@ -521,6 +529,7 @@
   (assert (rule (if city is ?v)
       (then best-city is ?v with certainty 90))))
 
+;;genera le regole per il tipo di turismo
 (defrule REASONING-RULES::compile-rules-tourism-type
   (attribute (name tourism-type)
              (value ?v))
@@ -528,6 +537,7 @@
   (assert (rule (if tourism-type is ?v)
       (then best-tourism-type is ?v with certainty 80))))
 
+;;genera le regole per le regioni scelte dall'utente
 (defrule REASONING-RULES::compile-rules-region
   (attribute (name region)
              (value ?v))
@@ -535,6 +545,7 @@
   (assert (rule (if region is ?v)
       (then best-region is ?v with certainty 95))))
 
+;;genera le regole per le regioni che l'utente non vuole
 (defrule REASONING-RULES::compile-rules-not-region
   (attribute (name not-region)
              (value ?v))
@@ -784,6 +795,7 @@
 	(distance (loc1 Salerno) (loc2 Cagliari) (dist 511))
 	(distance (loc1 Savona) (loc2 Siena) (dist 351)))
 
+;;genera gli hotel attribute
 (defrule HOTELS::generate-hotels
   (hotel (name ?name) (tr ?tr) (stars ?s) (price-per-night ?ppn) (free-percent ?fp))
   (tourism-resort (name ?tr) (region ?r) (type $? ?t $?))
@@ -839,14 +851,14 @@
   (retract ?rem))
 
 (defrule MAKE-RESULTS::make-possible-combinations
-  (attribute (name time) (value ?t) (certainty ?per))
+  (attribute (name time) (value ?t) (certainty ?per))  ;;unifico con il numero di giorni
   =>
-  (bind ?hotels (length$ (find-all-facts ((?f hotel-attribute)) (and (> ?f:free-percent 0) (> ?f:certainty 0.0)))))
+  (bind ?hotels (length$ (find-all-facts ((?f hotel-attribute)) (and (> ?f:free-percent 0) (> ?f:certainty 0.0)))))  ;;prendo gli hotel che hanno certezza > 0 e hanno disponibilità
   (bind ?h (integer ?hotels))
-  (loop-for-count (?i 0 (integer (- (** (+ ?t 1) ?h) 1))) do
+  (loop-for-count (?i 0 (integer (- (** (+ ?t 1) ?h) 1))) do    ;; (t+1)^h
     (bind ?allocated-time (create$))
     (bind ?n ?i)
-    (loop-for-count (?j 1 ?h) do
+    (loop-for-count (?j 1 ?h) do		;;da uno fino al numero di hotel
       (bind ?q (integer (/ ?n (+ ?t 1))))
       (bind ?r (integer (- ?n (* ?q (+ ?t 1)))))
       (bind ?n ?q)
@@ -886,48 +898,48 @@
   (bind ?sum 0)
   (bind ?h (create$))
   (bind ?path (create$))
-  (loop-for-count (?i 1 (length$ ?hotels)) do (if (> (nth$ ?i ?allocated-time) 0) then
+  (loop-for-count (?i 1 (length$ ?hotels)) do (if (> (nth$ ?i ?allocated-time) 0) then ;; salva dentro h la lista degli hotel che hanno tempo allocato > 0
     (bind ?h (insert$ ?h 1 (nth$ ?i ?hotels)))))
   (loop-for-count (?i 1 (length$ ?hotels)) do
-    (do-for-fact ((?f hotel)) (eq ?f:name (nth$ ?i ?hotels)) (if (> (nth$ ?i ?allocated-time) 0) then (bind ?sum (+ ?sum (/ ?f:free-percent 4)))))
-    (bind ?time-hotel1 (nth$ ?i ?allocated-time))
-    (loop-for-count (?j (+ ?i 1) (length$ ?hotels)) do
-      (bind ?time-hotel2 (nth$ ?j ?allocated-time))
+    (do-for-fact ((?f hotel)) (eq ?f:name (nth$ ?i ?hotels)) (if (> (nth$ ?i ?allocated-time) 0) then (bind ?sum (+ ?sum (/ ?f:free-percent 4))))) ;; mette in sum la disponibilità dell'hotel / 4
+    (bind ?time-hotel1 (nth$ ?i ?allocated-time)) 					;; salvo il tempo del dell'hotel i
+    (loop-for-count (?j (+ ?i 1) (length$ ?hotels)) do 				;; dall'hotel i in avanti
+      (bind ?time-hotel2 (nth$ ?j ?allocated-time))					;; salvo tempo hotel j
       (if (and (> ?time-hotel1 0) (> ?time-hotel2 0)) then
-        (do-for-fact ((?f hotel)) (eq ?f:name (nth$ ?i ?hotels)) (bind ?tr1 ?f:tr))
-        (do-for-fact ((?f hotel)) (eq ?f:name (nth$ ?j ?hotels)) (bind ?tr2 ?f:tr))
+        (do-for-fact ((?f hotel)) (eq ?f:name (nth$ ?i ?hotels)) (bind ?tr1 ?f:tr))				;; per ogni fatto hotel i estrae la città
+        (do-for-fact ((?f hotel)) (eq ?f:name (nth$ ?j ?hotels)) (bind ?tr2 ?f:tr))				;; per ogni fatto hotel j estrae la città
         (do-for-fact ((?f distance))
-          (or (and (eq ?f:loc1 ?tr1) (eq ?f:loc2 ?tr2))
+          (or (and (eq ?f:loc1 ?tr1) (eq ?f:loc2 ?tr2))				;;unifica con le città1 e città2 dei fatti distanza
               (and (eq ?f:loc1 ?tr2) (eq ?f:loc2 ?tr1))
-              (eq ?tr1 ?tr2))
-              (if (neq ?tr1 ?tr2) then (bind ?d ?f:dist) else (bind ?d 0)))
-        (if (<= ?d 100.0) then
+              (eq ?tr1 ?tr2))										;;stessa città
+              (if (neq ?tr1 ?tr2) then (bind ?d ?f:dist) else (bind ?d 0)))	;; se le città sono diverse salvo la distanza altrimenti è 0
+        (if (<= ?d 100.0) then																					;; se la distanza è minore di 100 metto l'hotel in path se non è presente
           (if (eq (member$ (nth$ ?i ?hotels) ?path) FALSE) then (bind ?path (insert$ ?path 1 (nth$ ?i ?hotels))))
           (if (eq (member$ (nth$ ?j ?hotels) ?path) FALSE) then (bind ?path (insert$ ?path 1 (nth$ ?j ?hotels)))))))
-    (if (= ?time-hotel1 0) then
+    (if (= ?time-hotel1 0) then											;; se l'hotel non ha tempo allocato allora la certezza viene abbassata
       (bind ?hotels-certainty (replace$ ?hotels-certainty ?i ?i -0.0001))))
-  (loop-for-count (?i 1 (length$ ?path)) do
+  (loop-for-count (?i 1 (length$ ?path)) do								;;cancella dalla lista degli hotel gli hotel di path
     (bind ?index (member$ (nth$ ?i ?path) ?h))
     (if (neq ?index FALSE) then (bind ?h (delete$ ?h ?index ?index))))
-  (if (> (+ (length$ ?h) (length$ ?path)) 1) then
+  (if (> (+ (length$ ?h) (length$ ?path)) 1) then						;;lista hotel più quella di path maggiore di uno
     (loop-for-count (?i 1 (length$ ?h)) do
       (bind ?index (member$ (nth$ ?i ?h) ?hotels))
       (bind ?certainty-hotel (nth$ ?index ?hotels-certainty))
       (bind ?time-hotel (nth$ ?index ?allocated-time))
-      (bind ?hotels-certainty (replace$ ?hotels-certainty ?index ?index -100.0))))
-  (if (= (+ (length$ ?h) (length$ ?path)) 1) then
+      (bind ?hotels-certainty (replace$ ?hotels-certainty ?index ?index -100.0))))	;;abbasso la certainty
+  (if (= (+ (length$ ?h) (length$ ?path)) 1) then						;;lista hotel più quella di path = uno
     (bind ?index (member$ (nth$ 1 ?h) ?hotels))
     (bind ?certainty-hotel (nth$ ?index ?hotels-certainty))
     (bind ?time-hotel (nth$ ?index ?allocated-time))
-    (bind ?hotels-certainty (replace$ ?hotels-certainty ?index ?index (* ?certainty-hotel ?time-hotel))))
-  (loop-for-count (?i 1 (length$ ?path)) do
+    (bind ?hotels-certainty (replace$ ?hotels-certainty ?index ?index (* ?certainty-hotel ?time-hotel))))	;;moltiplico la certainty per il tempo hotel
+  (loop-for-count (?i 1 (length$ ?path)) do					;;incrementa la certainty degli hoetel del path
     (bind ?index (member$ (nth$ ?i ?path) ?hotels))
     (bind ?certainty-hotel (nth$ ?index ?hotels-certainty))
     (bind ?time-hotel (nth$ ?index ?allocated-time))
     (bind ?hotels-certainty (replace$ ?hotels-certainty ?index ?index (* ?certainty-hotel ?time-hotel))))
   (loop-for-count (?i 1 (length$ ?hotels)) do
     (bind ?sum (+ ?sum (nth$ ?i ?hotels-certainty))))
-  (modify ?a (certainty ?hotels-certainty) (alt-certainty ?sum) (flag TRUE)))
+  (modify ?a (certainty ?hotels-certainty) (alt-certainty ?sum) (flag TRUE)))	;;la certezza dell'alternativa è la somma delle certezze dell'hotel
 
 (defrule MAKE-RESULTS::print-results (declare (salience -10))
   =>

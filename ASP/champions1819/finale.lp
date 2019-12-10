@@ -93,20 +93,26 @@ haCitta(shakhtar_donetsk, donetsk).
 
 % due squadre della stessa città non possono giocare entrambe in casa durante la medesima giornata
 :- partita(S1, S2, G1, N, and), partita(S3, S4, G2, N, and),
-   haCitta(S1, C1), haCitta(S3, C3), C1 == C3,
+   haCitta(S1, C), haCitta(S3, C),
+   S1 != S3.
+
+:- partita(S1, S2, G1, N, rit), partita(S3, S4, G2, N, rit),
+   haCitta(S1, C), haCitta(S3, C),
    S1 != S3.
 
 % una squadra non può giocare più di due partite consecutive in casa
 :- partita(S1, S2, G, 1, and), partita(S1, S3, G, 2, and), partita(S1, S4, G, 3, and).
+:- partita(S1, S2, G, 1, rit), partita(S1, S3, G, 2, rit), partita(S1, S4, G, 3, rit).
 
 % una squadra non può giocare più di due partite consecutive in trasferta
+:- partita(S2, S1, G, 1, and), partita(S3, S1, G, 2, and), partita(S4, S1, G, 3, and).
 :- partita(S2, S1, G, 1, rit), partita(S3, S1, G, 2, rit), partita(S4, S1, G, 3, rit).
 
 % genera le partite di ritorno
 partita(S1, S, G, N, rit) :- partita(S, S1, G, N, and).
 
-%Time: 39.125s (Solving: 0.10s 1st Model: 0.10s Unsat: 0.00s) Senza vincoli
-%Time: 39.080s (Solving: 0.16s 1st Model: 0.15s Unsat: 0.00s)
+%Time: 119.889s (Solving: 0.27s 1st Model: 0.21s Unsat: 0.00s) Senza vincoli
+%Time: 130.100s (Solving: 0.25s 1st Model: 0.18s Unsat: 0.00s)
 %assegnaSquadra(real_madrid, a).
 %assegnaSquadra(monaco, b).
 %assegnaSquadra(juventus, c).
