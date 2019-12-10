@@ -96,10 +96,6 @@ haCitta(shakhtar_donetsk, donetsk).
    haCitta(S1, C), haCitta(S3, C),
    S1 != S3.
 
-:- partita(S1, S2, G1, N, rit), partita(S3, S4, G2, N, rit),
-   haCitta(S1, C), haCitta(S3, C),
-   S1 != S3.
-
 % una squadra non può giocare più di due partite consecutive in casa
 :- partita(S1, S2, G, 1, and), partita(S1, S3, G, 2, and), partita(S1, S4, G, 3, and).
 
@@ -111,8 +107,8 @@ partita(S1, S, G, N, rit) :- partita(S, S1, G, N, and).
 
 %Time: 50.828s (Solving: 0.22s 1st Model: 0.18s Unsat: 0.00s) Senza vincoli
 %Time: 59.470s (Solving: 0.23s 1st Model: 0.18s Unsat: 0.00s)
-assegnaSquadra(real_madrid, a).
-assegnaSquadra(monaco, b).
-assegnaSquadra(juventus, c).
+%assegnaSquadra(real_madrid, a).
+%assegnaSquadra(monaco, b).
+%assegnaSquadra(juventus, c).
 
 #show partita/5.
