@@ -102,11 +102,11 @@ haCitta(shakhtar_donetsk, donetsk).
 
 % una squadra non può giocare più di due partite consecutive in casa
 :- partita(S1, S2, G, 1, and), partita(S1, S3, G, 2, and), partita(S1, S4, G, 3, and).
-:- partita(S1, S2, G, 1, rit), partita(S1, S3, G, 2, rit), partita(S1, S4, G, 3, rit).
+%:- partita(S1, S2, G, 1, rit), partita(S1, S3, G, 2, rit), partita(S1, S4, G, 3, rit).
 
 % una squadra non può giocare più di due partite consecutive in trasferta
 :- partita(S2, S1, G, 1, and), partita(S3, S1, G, 2, and), partita(S4, S1, G, 3, and).
-:- partita(S2, S1, G, 1, rit), partita(S3, S1, G, 2, rit), partita(S4, S1, G, 3, rit).
+%:- partita(S2, S1, G, 1, rit), partita(S3, S1, G, 2, rit), partita(S4, S1, G, 3, rit).
 
 % genera le partite di ritorno
 partita(S1, S, G, N, rit) :- partita(S, S1, G, N, and).
