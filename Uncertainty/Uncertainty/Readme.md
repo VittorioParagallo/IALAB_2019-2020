@@ -102,12 +102,16 @@ Le barre orrizzontali dei grafici seguenti rappresentano la media dei tempi.<br>
 I primi 3 grafici rappresentano i tempi delle inferenze su tutte le reti, negli altri 3 invece ci sono i tempi delle inferenze divisi per rete.<br>
 <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/grafico1.jpeg"/><br>
 <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/grafico2.jpeg"/><br>
-<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/grafico3.jpeg"/><br>
-
-
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/grafico3.jpeg"/><br><br>
 <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/tabellaSachs.jpeg"/><br>
-<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/graficoSachs.jpeg"/><br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/graficoSachs.jpeg"/><br><br>
 <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/tabellaInsurance.jpeg"/><br>
-<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/graficoInsurance.jpeg"/><br>
-<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/tabellaHepar2.jpeg"/><br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/graficoInsurance.jpeg"/><br><br>
+
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/tabellahepar2.jpeg"/><br>
 <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/graficoHepar2.jpeg"/><br>
+
+## Conclusioni
+Dai primi 3 grafici si può evincere che aumentando di grandezza e complessità, le reti richiedono più tempo per calcolare qualunque tipo di inferenza.<br>
+L'inferenza MPE generalmente richiede più tempo delle inferenze MAP quando sono impostate a 25% e 50%, mentre quando sono al 75% richiedono tempi simili. In effetti non è stata riscontrata la discesa nei tempi di MAP salendo dal 50% al 75%.<br>
+In genere l'ottimizzazione permette di ottenere delle riduzioni di tempo, in particolare nella rete Hepar2 si può notare che le performance maggiori le si ottengono quando le variabili di MAP sono al 25%, probabilmente perchè sono state scelte le variabili vicino alla radice.
