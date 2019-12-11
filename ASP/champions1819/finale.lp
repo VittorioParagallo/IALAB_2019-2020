@@ -95,6 +95,10 @@ haCitta(shakhtar_donetsk, donetsk).
 :- partita(S1, S2, G1, N, and), partita(S3, S4, G2, N, and),
    haCitta(S1, C), haCitta(S3, C),
    S1 != S3.
+ 
+:- partita(S1, S2, G1, N, and), partita(S3, S4, G2, N, rit),
+   haCitta(S1, C), haCitta(S3, C),
+   S1 != S3.
 
 % una squadra non può giocare più di due partite consecutive in casa
 :- partita(S1, S2, G, 1, and), partita(S1, S3, G, 2, and), partita(S1, S4, G, 3, and).
