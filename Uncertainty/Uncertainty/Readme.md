@@ -45,7 +45,7 @@ Alcune reti tra cui Barley, Insurance, Hailfinder, Hepar2 e Sachs hanno i file .
 Di conseguenza le probabilità calcolate o addirittura gli assegnamenti nelle reti più grandi non corrispondono.<br>
 L’inferenza MPE non va su tutte le reti, su quelle più grandi non termina perché i fattori sono troppo grandi oppure perché finisce la memoria RAM.<br>
 Con la classe MapTest ho potuto verificare che l’inferenza richiede più tempo man mano che il numero di variabili MAP raggiunge la metà delle variabili disponibili.<br>
-Mentre quando le variabili di MAP sono poche o quasi tante quante il totale l’inferenza richiede poco tempo.<br>
+Mentre quando le variabili di MAP sono poche il totale dell’inferenza richiede poco tempo.<br>
 L’ottimizzazione ha effetto sui tempi dell’inferenza solo se vengono scelte delle variabili MAP vicino alla radice, queste avranno molti non antenati che verranno eliminati e quindi non calcolati, se invece viene scelta una variabile vicino alle foglie questo farà sì che nel calcolo rimarranno un maggior numero di variabili, rallentando la computazione.<br>
 L’aumentare del numero di variabili di evidenza, riduce il tempo di inferenza, però aumenta quello necessario per il calcolo della costante di normalizzazione.
 
@@ -83,3 +83,31 @@ invece per la rete hailfinder va solo MAP e va quando si scelgono variabili vici
 * Andes
 
 Va solo MAP e va quando si scelgono variabili vicino alla radice, assegnamenti e cifre decimali identici.
+
+## Tempi inferenze MAP e MPE
+Per verificare se l'inferenza MPE è più veloce dell'inferenza MAP, abbiamo effettuato dei test approfonditi su 3 reti:
+* Sachs
+* Insurance
+* Hepar2
+
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/tabella1.jpeg"/><br>
+
+Le variabili di evidenza sono state prese casualmente e fissate per ogni test, incrementando solo il numero di variabili MAP.<br>
+Le variabili di MAP sono state impostate al 25%, 50% e 75% rispetto il totale delle variabili delle reti meno quelle di evidenza.<br>
+Sono state effettuate per ogni incremento delle variabili MAP 10 inferenze MAP e 10 MAP*, ogni volta selezionando casualmente le variabili di MAP.<br>
+Le inferenze MAP* rappresentano le inferenze applicando l'ottimizzazione delle variabili non significative.<br>
+Inoltre per aver una misura più affidibile dei tempi di MPE, sono state effettuate 30 inferenze ed è stata calcolata la media.<br>
+
+Le barre orrizzontali dei grafici seguenti rappresentano la media dei tempi.<br>
+I primi 3 grafici rappresentano i tempi delle inferenze su tutte le reti, negli altri 3 invece ci sono i tempi delle inferenze divisi per rete.<br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/grafico1.jpeg"/><br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/grafico2.jpeg"/><br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/grafico3.jpeg"/><br>
+
+
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/tabellaSachs.jpeg"/><br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/graficoSachs.jpeg"/><br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/tabellaInsurance.jpeg"/><br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/graficoInsurance.jpeg"/><br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/tabellaHepar2.jpeg"/><br>
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/graficoHepar2.jpeg"/><br>
