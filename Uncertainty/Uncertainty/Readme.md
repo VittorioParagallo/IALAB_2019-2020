@@ -47,7 +47,7 @@ L’inferenza MPE non va su tutte le reti, su quelle più grandi non termina per
 Con la classe MapTest ho potuto verificare che l’inferenza richiede più tempo man mano che il numero di variabili MAP raggiunge la metà delle variabili disponibili.<br>
 Mentre quando le variabili di MAP sono poche il totale dell’inferenza richiede poco tempo.<br>
 L’ottimizzazione ha effetto sui tempi dell’inferenza solo se vengono scelte delle variabili MAP vicino alla radice, queste avranno molti non antenati che verranno eliminati e quindi non calcolati, se invece viene scelta una variabile vicino alle foglie questo farà sì che nel calcolo rimarranno un maggior numero di variabili, rallentando la computazione.<br>
-L’aumentare del numero di variabili di evidenza, riduce il tempo di inferenza, però aumenta quello necessario per il calcolo della costante di normalizzazione.
+L’aumentare del numero di variabili di evidenza, riduce il tempo di inferenza.
 
 ## Reti utilizzate
 ### Reti piccole < 20 nodi
