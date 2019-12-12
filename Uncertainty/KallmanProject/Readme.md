@@ -45,8 +45,7 @@ I parametri vanno messi in ordine, di default il rumore è mid per entrambi i ru
 Esempio comando:
 java -jar .\KallmanProject.jar high low rand
 
-## Esperimenti
-### Rumore
+## Esperimenti Rumore
 I parametri del rumore impostano 3 livelli di rumore predefiniti.
 Per il rumore dell’osservazione viene modificata la variabile measurementNoise, che modifica la matrice R e cambia il comportamento durante la simulazione della misurazione.
 MeasurementNoise può assumere i seguenti valori: 0,00001, 10, 100.
@@ -56,23 +55,40 @@ MeasurementNoise può assumere i seguenti valori: 0,00001, 10, 100.
 0 0        10  0        100   0
 0 0        0  10        0   100
 ```
-Rumore “misurazione” “processo”:
-* low low: le predizioni sono corrette l’errore per entrambe le variabili è nell’ordine di 10-2, il kalman gain è vicino a 0 il che significa che ci si fida di più della predizione che della misurazione.
-* mid mid: l’errore varia da 1 a 10 per entrambe le variabili , il kalman gain è salito sta sempre intorno a 0.2
-* high high: l’errore varia da 10 a 100 per entrambe le variabili, il kalman gain rimane intorno a 0.13
-* low high: l’errore varia è basso vicino allo 0, il kalman gain è salito a 0,5 il che indica che dobbiamo fidarci di più delle misurazioni.
-* high low: l’errore varia 1 a 3 per la posizione, il kalman gain è vicino allo 0 quindi ci si fida di più delle predizioni, il rumore sulle misurazioni ha più effetto del rumore sul processo.
-
-### Variare la distribuzione iniziale dello stato
+Abbiamo fatto gli esperimenti impostando varie combinazioni di rumore, il primo parametro è il rumore di misurazione il secondo il rumore di processo.<br>
+Alcuni grafici sono in prospettiva perchè avendo le linee quasi sovrapposte non si capiva che il filtro si stava comportando bene.<br>
+I grafici sono divisi in triplette:
+1. La relazione tra lo spazio percorso e la velocità, stimate e reali.
+1. l'errore delle stime
+1. il kalman gain
+### Rumore low low
+Le predizioni sono corrette, l’errore per entrambe le variabili è nell’ordine di 10-2, il kalman gain parte da 0.5 e scende subito vicino a 0 il che significa che ci si fida di più della predizione che della misurazione.
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/explowlow.jpeg"/><br>
+### Rumore high high
+L’errore varia da 10 a 100 per entrambe le variabili, il kalman gain rimane intorno a 0.13
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/exphighhigh.jpeg"/><br>
+### Rumore low high
+L’errore varia è basso vicino allo 0, il kalman gain è salito a 0,5 il che indica che dobbiamo fidarci di più delle misurazioni.
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/explowhigh.jpeg"/><br>
+### Rumore high low
+Si può notare che l'errore della posizione (linea verde) è più alto rispetto a quello della velocità (linea blu), questo è dovuto al fatto che la posizione varia quadraticamente.<br>
+Il kalman gain è vicino allo 0 quindi ci si fida di più delle predizioni, il rumore sulle misurazioni ha più effetto del rumore sul processo.
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/exphighlow.jpeg"/><br>
+## Variare la distribuzione iniziale dello stato
 Utilizzando il parametro rand, la posizione e la velocità iniziale per il filtro vengono randomizzate tra 0 e 10.
-Impostando il rumore basso per entrambi i parametri il filtro riesce a correggere le stime, già dopo poche iterazioni, si può anche notare che il kalman gain si abbassa gradualmente da 0.5 a 0, indicando che inizialmente corregge la stima utilizzando le misurazioni.
+### Rumore low low
+Il filtro riesce a correggere le stime, già dopo poche iterazioni, si può anche notare che il kalman gain si abbassa gradualmente da 0.5 a 0, indicando che inizialmente corregge la stima utilizzando le misurazioni.
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/explowlowrand.jpeg"/><br>
+### Rumore low high
+La situazione non cambia il filtro riesce a correggere le stime.
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/explowhighrand.jpeg"/><br>
+### Rumore high low
+Il filtro non riesce più a correggere le stime, perché non ha più modo di misurare correttamente lo stato corrente del veicolo.
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/exphighlowrand.jpeg"/><br>
+### Rumore high high
+Il filtro non riesce più a correggere le stime, perché non ha più modo di misurare correttamente lo stato corrente del veicolo.
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/exphighhighrand.jpeg"/><br>
 
-Impostando il rumore basso per l’osservazione e alto per il processo, la situazione non cambia il filtro riesce a correggere le stime.
-
-Impostando il rumore medio per l’osservazione si riesce sempre a tenere l’errore tra 0 e 10 per entrambe le variabili.
-
-Impostando invece il rumore alto per la misurazione e basso per il processo, il filtro non riesce più a correggere le stime, perché non ha più modo di misurare correttamente lo stato corrente del veicolo.
-
-### Processo non lineare
+## Processo non lineare
 Il nostro progetto modella un processo con una variabile che ha un andamento lineare e una variabile che ha un andamento quadratico.
 Modificando l’accelerazione, la posizione ha un andamento quadratico anziché lineare, si può infatti notare che nella maggior parte dei casi quando il rumore è mid o high la posizione ha un errore più alto rispetto alla velocità che ha un andamento lineare.
