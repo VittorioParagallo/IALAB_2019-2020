@@ -94,9 +94,10 @@ Per verificare se l'inferenza MPE è più veloce dell'inferenza MAP, abbiamo eff
 
 Le variabili di evidenza sono state prese casualmente e fissate per ogni test, incrementando solo il numero di variabili MAP.<br>
 Le variabili di MAP sono state impostate al 25%, 50% e 75% rispetto il totale delle variabili delle reti meno quelle di evidenza.<br>
-Sono state effettuate per ogni incremento delle variabili MAP 10 inferenze MAP e 10 MAP*, ogni volta selezionando casualmente le variabili di MAP.<br>
+Sono state effettuate per ogni incremento delle variabili MAP 10 inferenze MAP, 10 MAP* e 10 MPE, ogni volta selezionando casualmente le variabili di MAP.<br>
 Le inferenze MAP* rappresentano le inferenze applicando l'ottimizzazione delle variabili non significative.<br>
-Inoltre per aver una misura più affidibile dei tempi di MPE, sono state effettuate 30 inferenze ed è stata calcolata la media.<br>
+Sarebbe bastata un'unica inferenza MAP per ogni incremento, ma sono state effettuate 10 inferenze per aver una misura più affidibile dei tempi di MPE, ed è stata calcolata la media.
+Nei grafici con solo le reti singole, sembra che MPE vari in accordo al numero di variabili MAP, ma in realtà i tempi di MPE variano leggermente probabilmente per lo scheduling del sistema, le inferenze hanno sempre dei tempi nell'ordine dei millisecondi quindi una leggera varianza è accettabile.<br>
 
 Le barre orrizzontali dei grafici seguenti rappresentano la media dei tempi.<br>
 I primi 3 grafici rappresentano i tempi delle inferenze su tutte le reti, negli altri 3 invece ci sono i tempi delle inferenze divisi per rete.<br>
@@ -113,5 +114,5 @@ I primi 3 grafici rappresentano i tempi delle inferenze su tutte le reti, negli 
 
 ## Conclusioni
 Dai primi 3 grafici si può evincere che aumentando di grandezza e complessità, le reti richiedono più tempo per calcolare qualunque tipo di inferenza.<br>
-L'inferenza MPE generalmente richiede più tempo delle inferenze MAP quando sono impostate a 25% e 50%, mentre quando sono al 75% richiedono tempi simili. In effetti non è stata riscontrata la discesa nei tempi di MAP salendo dal 50% al 75%.<br>
+L'inferenza MPE generalmente richiede più tempo delle inferenze MAP quando sono impostate a 25% e 50%, mentre quando sono al 75% richiedono tempi simili. In effetti non è stata riscontrata la discesa nei tempi di MAP salendo dal 50% al 75%, poichè non vi è una rilevante diminuzione nella dimensione dei fattori.<br>
 In genere l'ottimizzazione permette di ottenere delle riduzioni di tempo, in particolare nella rete Hepar2 si può notare che le performance maggiori le si ottengono quando le variabili di MAP sono al 25%, probabilmente perchè sono state scelte le variabili vicino alla radice.
