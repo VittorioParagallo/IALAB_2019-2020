@@ -87,7 +87,7 @@ Il filtro riesce a correggere le stime, il kalman gain rimane intorno a 0.5 perc
 Il filtro non riesce più a correggere le stime, perché non ha più modo di misurare correttamente lo stato corrente del veicolo.
 <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/exphighlowrand.jpeg"/><br>
 ### Rumore high high
-Come sopra il filtro non riesce più a correggere le stime, però l'errore varia parecchio per entrambe le variabili.
+Come sopra il filtro non riesce più a correggere le stime e l'errore varia parecchio per entrambe le variabili.
 <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/KallmanProject/img/exphighighrand.jpeg"/><br>
 
 ## Processo non lineare
