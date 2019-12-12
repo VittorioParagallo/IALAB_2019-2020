@@ -48,7 +48,7 @@ Con la classe MapTest ho potuto verificare che l’inferenza richiede più tempo
 Mentre quando le variabili di MAP sono poche il totale dell’inferenza richiede poco tempo.<br>
 L’ottimizzazione ha effetto sui tempi dell’inferenza solo se vengono scelte delle variabili MAP vicino alla radice, queste avranno molti non antenati che verranno eliminati e quindi non calcolati, se invece viene scelta una variabile vicino alle foglie questo farà sì che nel calcolo rimarranno un maggior numero di variabili, rallentando la computazione.<br>
 L’aumentare del numero di variabili di evidenza, riduce il tempo di inferenza.
-
+<img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/graficoevidenze.png"/><br>
 ## Reti utilizzate
 ### Reti piccole < 20 nodi
 <img src="https://github.com/VittorioParagallo/IALAB_2019-2020/blob/master/Uncertainty/Uncertainty/img/earthquake.png"/><br>
